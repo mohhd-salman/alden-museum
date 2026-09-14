@@ -4,7 +4,7 @@ langcode: en
 uuid: b7f38a3a-30df-4bd4-9901-492bf7cbe48d
 name: 'The Alden Museum'
 mail: admin@example.com
-slogan: 'Art and memory'
+slogan: 'Art and memory, since 1912'
 page:
   403: ''
   404: ''
