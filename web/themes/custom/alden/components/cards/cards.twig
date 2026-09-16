@@ -2,9 +2,9 @@
   Available variables:
   - eyebrow, heading, heading_level (default 2).
   - link_url, link_text: optional "All exhibitions" link.
-  - cards: list of { ph_class, meta, title, url, summary }. The first
-    card spans two of three grid columns -- pure CSS (nth-child), no
-    per-card flag needed.
+  - cards: list of { ph_class, image, meta, title, url, summary }. The
+    first card spans two of three grid columns -- pure CSS (nth-child),
+    no per-card flag needed. image is optional, falls back to ph_class.
 #}
 <section{{ attributes.addClass('sec') }}>
   <div class="wrap">
@@ -23,7 +23,7 @@
     <div class="cards">
       {% for card in cards %}
         <a class="card rv" href="{{ card.url }}">
-          <div class="ph {{ card.ph_class }}"><i></i></div>
+          <div class="ph {{ card.ph_class }}{{ card.image ? ' has-image' : '' }}"><i>{% if card.image %}{{ card.image }}{% endif %}</i></div>
           {% if card.meta %}<p class="status meta">{{ card.meta }}</p>{% endif %}
           <h3 class="display d-sm">{{ card.title }}</h3>
           {% if card.summary %}<p>{{ card.summary }}</p>{% endif %}

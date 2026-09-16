@@ -1,8 +1,9 @@
 {#
   Available variables:
   - eyebrow: optional, e.g. "Related events".
-  - items: list of { ph_class, tag, tag_class, title, url, meta }.
+  - items: list of { ph_class, image, tag, tag_class, title, url, meta }.
     tag_class is "ev" (rust) or "jr" (stone), matching .tag in layout.
+    image is optional, falls back to ph_class.
 #}
 <section{{ attributes.addClass('sec', 'on-ink') }}>
   <div class="wrap">
@@ -10,7 +11,7 @@
     <div class="rel rv">
       {% for item in items %}
         <a href="{{ item.url }}">
-          <div class="ph {{ item.ph_class }}"><i></i></div>
+          <div class="ph {{ item.ph_class }}{{ item.image ? ' has-image' : '' }}"><i>{% if item.image %}{{ item.image }}{% endif %}</i></div>
           {% if item.tag %}<span class="tag {{ item.tag_class }}">{{ item.tag }}</span>{% endif %}
           <h3 class="display d-sm" style="color:var(--bone)">{{ item.title }}</h3>
           {% if item.meta %}<p class="meta">{{ item.meta }}</p>{% endif %}

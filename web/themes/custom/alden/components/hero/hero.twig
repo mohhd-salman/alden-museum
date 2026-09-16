@@ -7,9 +7,11 @@
   - primary_url/primary_text, secondary_url/secondary_text: optional,
     the second is rendered as a ghost button when present.
   - ph_class: e.g. "ph-sculpt".
+  - image: optional responsive_image render array; falls back to the
+    ph_class gradient when empty.
 #}
 <header{{ attributes.addClass('hero') }}>
-  <div class="ph {{ ph_class }}"><i></i></div>
+  <div class="ph {{ ph_class }}{{ image ? ' has-image' : '' }}"><i>{% if image %}{{ image }}{% endif %}</i></div>
   <div class="hero-scrim"></div>
   <div class="hero-inner">
     {% if eyebrow %}<p class="eyebrow on-dark">{{ eyebrow }}</p>{% endif %}

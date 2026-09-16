@@ -14,6 +14,14 @@
   transition: background .35s var(--ease);
 }
 .row:hover { background: rgba(22, 21, 15, .025); }
+/* .row's own `display: grid` above is an author-origin rule, so it beats
+   the UA stylesheet's `[hidden] { display: none }` regardless of
+   specificity or source order -- origin is compared before specificity
+   in the cascade. Without this, listing.js's `item.hidden = true` on a
+   filtered-out row is silently inert: the row stays display:grid, full
+   size, and clickable, just invisible. `.row[hidden]` is more specific
+   than `.row` within the same (author) origin, so it wins cleanly. */
+.row[hidden] { display: none; }
 @media (min-width: 52rem) { .row { grid-template-columns: 8rem 1fr 14rem; gap: 2.5rem; align-items: start; } }
 .row .when { font-family: var(--serif); font-size: clamp(1.6rem, 2.2vw, 2.1rem); line-height: 1; letter-spacing: -.02em; }
 .row .when small {

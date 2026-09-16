@@ -1,8 +1,8 @@
 {#
   Available variables:
   - items: list of { when: {day, month_year}, tag, tag_class, kind, title,
-    url, summary, meta, ph_class }. tag_class is "ev" (event) or "jr"
-    (article/journal).
+    url, summary, meta, ph_class, image }. tag_class is "ev" (event) or
+    "jr" (article/journal). image is optional, falls back to ph_class.
 #}
 <div class="rows" id="rows">
   {% for item in items %}
@@ -14,7 +14,7 @@
         {% if item.summary %}<p>{{ item.summary }}</p>{% endif %}
         {% if item.meta %}<p class="meta" style="margin-top:.6rem">{{ item.meta }}</p>{% endif %}
       </div>
-      <div class="thumb"><div class="ph {{ item.ph_class }}"><i></i></div></div>
+      <div class="thumb"><div class="ph {{ item.ph_class }}{{ item.image ? ' has-image' : '' }}"><i>{% if item.image %}{{ item.image }}{% endif %}</i></div></div>
     </a>
   {% endfor %}
 </div>

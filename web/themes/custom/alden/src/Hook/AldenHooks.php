@@ -121,7 +121,7 @@ class AldenHooks {
         // still uses the shared _doc-layout.html.twig partial for its
         // sticky contact sidebar, so it needs its own variables built.
         if ((int) $node->id() === 45) {
-          $this->preprocessMembershipNode($variables);
+          $this->preprocessMembershipNode($variables, $node);
           return;
         }
         $this->preprocessBasicPageNode($variables, $node);
@@ -176,6 +176,7 @@ class AldenHooks {
       'eyebrow' => $meta['eyebrow'],
       'h1' => $meta['h1'],
       'date_line' => '',
+      'image' => AldenComponentHelper::nodeImage($node, 'alden_split'),
       'body' => $node->get('body')->isEmpty() ? '' : $node->get('body')->first()->processed,
       'panels' => [$this->visitPanel()],
       'cta' => ['url' => '/membership', 'text' => 'Become a member'],
@@ -266,12 +267,13 @@ class AldenHooks {
    * they're dropped rather than invented; see the final build report
    * for the full list).
    */
-  private function preprocessMembershipNode(array &$variables): void {
+  private function preprocessMembershipNode(array &$variables, NodeInterface $node): void {
     $variables['alden_hero'] = [
       'title' => 'Three visits and it has paid for itself',
       'eyebrow' => 'Membership',
       'min_height' => '58svh',
       'ph_class' => 'ph-gallery',
+      'image' => AldenComponentHelper::nodeImage($node, 'alden_hero'),
     ];
 
     $variables['alden_lede'] = 'Membership runs for twelve months from the day you join and covers unlimited entry to the museum and every ticketed exhibition.';
@@ -358,6 +360,7 @@ class AldenHooks {
       'title' => $node->label(),
       'status_text' => AldenComponentHelper::exhibitionStatusLabel($node),
       'ph_class' => AldenComponentHelper::phClass($node, 'hero'),
+      'image' => AldenComponentHelper::nodeImage($node, 'alden_hero'),
     ];
 
     $topics = [];
@@ -383,11 +386,7 @@ class AldenHooks {
       }
     }
 
-    $gallery_items = [];
-    foreach (AldenComponentHelper::galleryPhClasses($node) as $ph_class) {
-      $gallery_items[] = ['ph_class' => $ph_class];
-    }
-    $variables['alden_gallery'] = $gallery_items;
+    $variables['alden_gallery'] = AldenComponentHelper::galleryItems($node);
     $variables['alden_related'] = AldenComponentHelper::relatedForExhibition($node);
   }
 
@@ -426,6 +425,7 @@ class AldenHooks {
         $badge = AldenComponentHelper::exhibitionBadge($node);
         $items[] = [
           'ph_class' => AldenComponentHelper::phClass($node, 'card'),
+          'image' => AldenComponentHelper::nodeImage($node, 'alden_card'),
           'badge_text' => $badge['text'],
           'badge_class' => $badge['class'],
           'is_past' => $badge['is_past'],
@@ -468,6 +468,7 @@ class AldenHooks {
         $kind = $node->get('field_kind')->value;
         $items[] = [
           'ph_class' => AldenComponentHelper::phClass($node, 'default'),
+          'image' => AldenComponentHelper::nodeImage($node, 'alden_thumb'),
           'when' => AldenComponentHelper::rowWhen($node),
           'tag' => $is_event ? AldenComponentHelper::eventTag($node) : $tag_labels[$kind],
           'tag_class' => $is_event ? 'ev' : 'jr',
@@ -504,6 +505,7 @@ class AldenHooks {
         // chrome, not stored on the paragraph (there is nowhere on the
         // existing hero fields to put them) -- matching the mockup's own
         // hardcoded hero copy exactly.
+        $hero_media = AldenComponentHelper::mediaFromField($paragraph, 'field_hero_media');
         $variables['alden'] = [
           'eyebrow' => 'Now on view · Until 10 January',
           'heading_level' => 1,
@@ -514,6 +516,7 @@ class AldenHooks {
           'secondary_url' => Url::fromRoute('entity.node.canonical', ['node' => 43])->toString(),
           'secondary_text' => 'Plan your visit',
           'ph_class' => 'ph-sculpt',
+          'image' => $hero_media ? AldenComponentHelper::responsiveImage($hero_media, 'alden_hero') : [],
         ];
         break;
 
@@ -522,6 +525,7 @@ class AldenHooks {
         $ph_class = $parent instanceof NodeInterface && $parent->bundle() === 'exhibition'
           ? AldenComponentHelper::phClass($parent, 'exhibition-split')
           : ($paragraph->get('field_reversed')->value ? 'ph-paint' : 'ph-sculpt');
+        $split_media = AldenComponentHelper::mediaFromField($paragraph, 'field_split_media');
         $variables['alden'] = [
           'eyebrow' => $paragraph->get('field_eyebrow')->value ?: 'Exhibition',
           'heading' => $paragraph->get('field_title')->value ?: '',
@@ -531,6 +535,7 @@ class AldenHooks {
           'link_text' => '',
           'reversed' => (bool) $paragraph->get('field_reversed')->value,
           'ph_class' => $ph_class,
+          'image' => $split_media ? AldenComponentHelper::responsiveImage($split_media, 'alden_split') : [],
         ];
         break;
 
@@ -541,6 +546,7 @@ class AldenHooks {
             $card = AldenComponentHelper::cardFromNode($node, 'card');
             $cards[] = [
               'ph_class' => $card['ph_class'],
+              'image' => $card['image'],
               'meta' => $card['meta'],
               'title' => $card['title'],
               'url' => $card['url'],
@@ -566,6 +572,7 @@ class AldenHooks {
             $is_event = $node->bundle() === 'event';
             $cards[] = [
               'ph_class' => $card['ph_class'],
+              'image' => $card['image'],
               'tag' => $is_event ? AldenComponentHelper::eventTag($node) : 'Article',
               'tag_class' => $is_event ? 'ev' : '',
               'title' => $card['title'],
@@ -593,6 +600,7 @@ class AldenHooks {
             $card = AldenComponentHelper::cardFromNode($node);
             $cards[] = [
               'ph_class' => $card['ph_class'],
+              'image' => $card['image'],
               'title' => $card['title'],
               'url' => $card['url'],
               'meta' => $card['meta'],

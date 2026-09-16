@@ -24,7 +24,7 @@
     <div class="news">
       {% for card in cards %}
         <a class="rv" href="{{ card.url }}"><article>
-          <div class="ph {{ card.ph_class }}"><i></i></div>
+          <div class="ph {{ card.ph_class }}{{ card.image ? ' has-image' : '' }}"><i>{% if card.image %}{{ card.image }}{% endif %}</i></div>
           {% if card.tag %}
             <span class="tag {{ card.tag_class }}">{{ card.tag }}</span>
             <h3 class="display d-sm">{{ card.title }}</h3>

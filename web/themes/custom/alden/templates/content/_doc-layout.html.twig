@@ -13,6 +13,11 @@
   <p class="eyebrow">{{ alden_doc.eyebrow }}</p>
   <h1 class="display d-lg" style="max-width:16ch;margin-top:.6rem">{{ alden_doc.h1 }}</h1>
 </header>
+{% if alden_doc.image %}
+  <div class="wrap">
+    <div class="doc-banner">{{ alden_doc.image }}</div>
+  </div>
+{% endif %}
 <section class="sec" style="padding-top:clamp(1rem,2vw,2rem)">
   <div class="wrap">
     <div class="doc">

@@ -1,12 +1,13 @@
 {#
   Available variables:
-  - items: list of { ph_class, badge_text, badge_class, is_past, title, url,
-    meta, summary }. badge_class is '' (on view) / 'up' (upcoming) / 'past'.
+  - items: list of { ph_class, image, badge_text, badge_class, is_past,
+    title, url, meta, summary }. badge_class is '' (on view) / 'up'
+    (upcoming) / 'past'. image is optional, falls back to ph_class.
 #}
 <div class="xgrid" id="xgrid">
   {% for item in items %}
     <a class="xcard rv{{ item.is_past ? ' is-past' : '' }}" data-state="{{ item.state }}" href="{{ item.url }}">
-      <div class="ph {{ item.ph_class }}"><i></i></div>
+      <div class="ph {{ item.ph_class }}{{ item.image ? ' has-image' : '' }}"><i>{% if item.image %}{{ item.image }}{% endif %}</i></div>
       <span class="badge {{ item.badge_class }}">{{ item.badge_text }}</span>
       <h3 class="display d-sm">{{ item.title }}</h3>
       {% if item.meta %}<p class="meta" style="margin-bottom:.5rem">{{ item.meta }}</p>{% endif %}

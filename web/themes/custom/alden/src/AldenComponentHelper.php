@@ -72,6 +72,38 @@ class AldenComponentHelper {
   }
 
   /**
+   * The per-bundle name of a node's own single image field -- exhibition
+   * and page both use field_hero_media, event uses field_event_image,
+   * article uses field_image. Centralized here so every component that
+   * needs "this node's picture" (cards, xgrid, news-grid, row-list,
+   * related) asks one place rather than repeating the per-bundle switch.
+   */
+  public static function primaryImageField(NodeInterface $node): ?string {
+    return match ($node->bundle()) {
+      'exhibition', 'page' => 'field_hero_media',
+      'event' => 'field_event_image',
+      'article' => 'field_image',
+      default => NULL,
+    };
+  }
+
+  /**
+   * A node's own picture, as a responsive_image render array via
+   * responsiveImage() -- or [] if the bundle has no image field, the
+   * field is empty, or (still, deliberately) most nodes don't have one
+   * set yet. Components fall back to their ph_class gradient when this
+   * is empty; see e.g. cards.twig.
+   */
+  public static function nodeImage(NodeInterface $node, string $style): array {
+    $field = self::primaryImageField($node);
+    if (!$field) {
+      return [];
+    }
+    $media = self::mediaFromField($node, $field);
+    return $media ? self::responsiveImage($media, $style) : [];
+  }
+
+  /**
    * The mockups' subject-matter -> gradient-placeholder-class mapping,
    * hardcoded by node ID since it's an editorial (not structural) choice
    * matching the approved mockups exactly -- see
@@ -130,19 +162,27 @@ class AldenComponentHelper {
    * Normalizes a node (exhibition/event/article) into card data.
    *
    * Each bundle keeps its own date field; this derives a common
-   * { ph_class, title, url, meta, summary } shape so the grid components
-   * don't need to know about per-bundle field differences. `image` is
-   * deliberately not part of this shape right now -- see phClass().
+   * { ph_class, image, title, url, meta, summary } shape so the grid
+   * components don't need to know about per-bundle field differences.
+   * `image` is a responsive_image render array (empty if the node has no
+   * image set yet) -- components render it over the ph_class gradient
+   * when present, and fall back to the gradient alone when not.
    *
    * @param \Drupal\node\NodeInterface $node
    *   The referenced node.
    * @param string $context
    *   Passed through to phClass().
+   * @param string $image_style
+   *   Responsive image style ID for $node's own picture. Defaults to the
+   *   3-column card grid; pass 'alden_card_2col'/'alden_card_4col' for
+   *   grids with a different column count, or 'alden_thumb' for the
+   *   What's On row list's small thumbnail.
    *
    * @return array
-   *   Card data for the cards/news-grid/exhibition-grid components.
+   *   Card data for the cards/news-grid/exhibition-grid/xgrid/row-list/
+   *   related components.
    */
-  public static function cardFromNode(NodeInterface $node, string $context = 'default'): array {
+  public static function cardFromNode(NodeInterface $node, string $context = 'default', string $image_style = 'alden_card'): array {
     $date_formatter = \Drupal::service('date.formatter');
     $meta = '';
 
@@ -172,6 +212,7 @@ class AldenComponentHelper {
 
     return [
       'ph_class' => self::phClass($node, $context),
+      'image' => self::nodeImage($node, $image_style),
       'title' => $node->label(),
       'url' => $node->toUrl()->toString(),
       'meta' => $meta,
@@ -276,6 +317,28 @@ class AldenComponentHelper {
   }
 
   /**
+   * Exhibition detail's gallery grid items: real photos from
+   * field_gallery, each paired with the same per-exhibition ph_class
+   * sequence galleryPhClasses() produces, as a fallback for any item
+   * whose media entity has no image yet. Sized to however many gallery
+   * items the exhibition actually has.
+   */
+  public static function galleryItems(NodeInterface $node): array {
+    $ph_classes = self::galleryPhClasses($node);
+    $items = [];
+    foreach ($node->get('field_gallery')->referencedEntities() as $delta => $media) {
+      if (!$media instanceof MediaInterface) {
+        continue;
+      }
+      $items[] = [
+        'ph_class' => $ph_classes[$delta] ?? 'ph-gallery',
+        'image' => self::responsiveImage($media, 'alden_gallery'),
+      ];
+    }
+    return $items;
+  }
+
+  /**
    * The event "kind" badge text -- not a structured field on the event
    * content type, so this is a small hardcoded lookup by node ID,
    * matching the mockup's own hand-picked badge per event. Shared by the
@@ -344,9 +407,10 @@ class AldenComponentHelper {
     $related = [];
     foreach (array_slice($items, 0, $limit) as $related_node) {
       $is_event = $related_node->bundle() === 'event';
-      $card = self::cardFromNode($related_node);
+      $card = self::cardFromNode($related_node, 'default', 'alden_card');
       $related[] = [
         'ph_class' => $card['ph_class'],
+        'image' => $card['image'],
         'tag' => $is_event ? self::eventTag($related_node) : 'Journal',
         'tag_class' => $is_event ? 'ev' : 'jr',
         'title' => $card['title'],
