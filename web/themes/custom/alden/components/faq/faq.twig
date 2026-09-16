@@ -1,0 +1,26 @@
+{#
+  Available variables:
+  - heading: optional h2, shown beside the expand/collapse-all control.
+  - items: list of { question, answer, open: bool }. Numbered 01, 02...
+    in the left gutter. Open/close height animation, one-at-a-time
+    opening, and the expand/collapse-all control are all handled by
+    js/faq.js; the +/rotate marker is pure CSS.
+#}
+<div>
+  <div class="faq-head">
+    {% if heading %}<h2 class="display d-md">{{ heading }}</h2>{% endif %}
+    <button type="button" class="faq-toggle-all" aria-expanded="false">Expand all</button>
+  </div>
+  <div class="faq">
+    {% for item in items %}
+      <details{{ item.open ? ' open' : '' }}>
+        <summary>
+          <span class="num">{{ '%02d'|format(loop.index) }}</span>
+          <span class="q">{{ item.question }}</span>
+          <span class="mark" aria-hidden="true"></span>
+        </summary>
+        <div class="answer"><p>{{ item.answer }}</p></div>
+      </details>
+    {% endfor %}
+  </div>
+</div>

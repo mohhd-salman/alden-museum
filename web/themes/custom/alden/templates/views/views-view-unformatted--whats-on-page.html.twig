@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * The /whats-on page. Bypasses the default row rendering entirely --
+ * alden_tabs/alden_items are built in
+ * AldenHooks::preprocessViewsViewUnformatted() (see src/Hook/AldenHooks.php)
+ * -- the View underneath still does all the real work (exposed filter,
+ * sort, published/type filtering); this template only supplies the
+ * mockup's markup on top of it. Filter links work as plain GET links
+ * with no JS (?kind=1/2/3); js/listing.js layers instant client-side
+ * filtering on top using the same data-filter/data-kind values.
+ */
+#}
+<header class="phead wrap">
+  <nav class="crumb">
+    <a href="/">Home</a><span>/</span><a aria-current="page">What's On</a>
+  </nav>
+  <p class="eyebrow">What's On</p>
+  <h1 class="display d-lg" style="max-width:15ch;margin-top:.6rem">Talks, workshops and writing</h1>
+</header>
+<section class="sec" style="padding-top:clamp(1.5rem,3vw,2.5rem)">
+  <div class="wrap">
+    <div class="tabs" id="wtabs" role="group" aria-label="Filter programme">
+      {% for tab in alden_tabs %}
+        <a href="{{ tab.url }}" aria-pressed="{{ tab.active ? 'true' : 'false' }}" data-filter="{{ tab.filter }}">{{ tab.label }}</a>
+      {% endfor %}
+    </div>
+    {{ include('alden:row-list', { items: alden_items }, with_context = false) }}
+  </div>
+</section>

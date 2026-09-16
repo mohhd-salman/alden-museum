@@ -1,0 +1,20 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Facts bar
+status: stable
+description: 'Exhibition detail''s dates/curator/topics bar -- renders human labels, never raw Drupal field names.'
+props:
+  type: object
+  properties:
+    dates:
+      type: string
+    curator:
+      type: string
+    topics:
+      type: array
+      title: 'List of { label, url }'
+      items:
+        type: object
+    lede:
+      type: string
+  required:
+    - dates

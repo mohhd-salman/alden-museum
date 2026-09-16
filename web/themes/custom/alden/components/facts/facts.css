@@ -1,0 +1,29 @@
+/**
+ * @file
+ * Facts bar, ported verbatim from mockups/alden-page-templates.html.
+ */
+
+.facts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  border-block: 1px solid rgba(22, 21, 15, .14);
+  padding-block: 1.75rem;
+}
+@media (min-width: 44rem) {
+  .facts { grid-template-columns: repeat(3, auto); gap: 3rem; justify-content: start; }
+}
+.facts dt { margin-bottom: .4rem; }
+.facts dd { font-family: var(--serif); font-size: clamp(1.05rem, 1.4vw, 1.3rem); }
+.topics { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .15rem; }
+.topics a {
+  font-size: .6875rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 1px solid rgba(22, 21, 15, .22);
+  border-radius: 100px;
+  padding: .35rem .8rem;
+  transition: .3s var(--ease);
+}
+.topics a:hover { background: var(--ink); color: var(--bone); border-color: var(--ink); }

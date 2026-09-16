@@ -1,0 +1,22 @@
+uuid: a7b4dc69-8847-4589-ba07-426c9c36e472
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body
+    - paragraphs.paragraphs_type.cta_band
+  module:
+    - text
+id: paragraph.cta_band.field_body
+field_name: field_body
+entity_type: paragraph
+bundle: cta_band
+label: Body
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

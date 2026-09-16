@@ -1,0 +1,21 @@
+uuid: c36efe15-a843-45d1-ade6-5ec6f4125b49
+langcode: en
+status: true
+dependencies: {  }
+name: alden_split_768
+label: 'Split 768w (1:1)'
+effects:
+  affc2128-b6bd-4f3b-b8f3-a29646cd165f:
+    uuid: affc2128-b6bd-4f3b-b8f3-a29646cd165f
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 768
+      height: 768
+      anchor: center-center
+  b75381d6-f47e-4cec-afa4-185622b953b8:
+    uuid: b75381d6-f47e-4cec-afa4-185622b953b8
+    id: image_convert
+    weight: 10
+    data:
+      extension: webp

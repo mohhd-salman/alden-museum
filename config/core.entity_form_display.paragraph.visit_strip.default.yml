@@ -1,0 +1,59 @@
+uuid: 6b7b6891-cb50-4653-8f2a-92e96ef20763
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.visit_strip.field_address
+    - field.field.paragraph.visit_strip.field_admission
+    - field.field.paragraph.visit_strip.field_hours
+    - field.field.paragraph.visit_strip.field_link
+    - field.field.paragraph.visit_strip.field_title
+    - paragraphs.paragraphs_type.visit_strip
+id: paragraph.visit_strip.default
+targetEntityType: paragraph
+bundle: visit_strip
+mode: default
+content:
+  field_address:
+    type: string_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+  field_admission:
+    type: string_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+  field_hours:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+  field_link:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

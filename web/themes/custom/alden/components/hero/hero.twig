@@ -1,0 +1,32 @@
+{#
+  Available variables:
+  - eyebrow, title, lede: plain text.
+  - heading_level (default 1): the front page is the only page this
+    renders on right now, so h1 is correct; kept as a prop for when the
+    exhibition/membership hero variants reuse this markup shape.
+  - primary_url/primary_text, secondary_url/secondary_text: optional,
+    the second is rendered as a ghost button when present.
+  - ph_class: e.g. "ph-sculpt".
+#}
+<header{{ attributes.addClass('hero') }}>
+  <div class="ph {{ ph_class }}"><i></i></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    {% if eyebrow %}<p class="eyebrow on-dark">{{ eyebrow }}</p>{% endif %}
+    <h{{ heading_level|default(1) }} class="display d-xl">{{ title }}</h{{ heading_level|default(1) }}>
+    {% if lede %}<p class="lede">{{ lede }}</p>{% endif %}
+    {% if primary_url or secondary_url %}
+      <div class="hero-foot">
+        {% if primary_url %}
+          <a href="{{ primary_url }}" class="btn">
+            {{ primary_text }}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        {% endif %}
+        {% if secondary_url %}
+          <a href="{{ secondary_url }}" class="btn btn-ghost">{{ secondary_text }}</a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</header>

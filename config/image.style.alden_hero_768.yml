@@ -1,0 +1,21 @@
+uuid: e72cfc5d-71bc-49a1-9085-460781f9fd3b
+langcode: en
+status: true
+dependencies: {  }
+name: alden_hero_768
+label: 'Hero 768w (21:9)'
+effects:
+  4e3900ec-cb93-4c15-935d-deac027bd218:
+    uuid: 4e3900ec-cb93-4c15-935d-deac027bd218
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 768
+      height: 329
+      anchor: center-center
+  8add0b7a-b418-46a7-9e71-e36cdc940f9a:
+    uuid: 8add0b7a-b418-46a7-9e71-e36cdc940f9a
+    id: image_convert
+    weight: 10
+    data:
+      extension: webp

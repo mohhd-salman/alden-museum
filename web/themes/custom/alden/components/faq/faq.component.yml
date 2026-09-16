@@ -1,0 +1,16 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: FAQ
+status: stable
+description: 'Question/answer list using native <details>, with a rotating + marker -- no JS needed.'
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+    items:
+      type: array
+      title: 'List of { question, answer, open: bool }'
+      items:
+        type: object
+  required:
+    - items

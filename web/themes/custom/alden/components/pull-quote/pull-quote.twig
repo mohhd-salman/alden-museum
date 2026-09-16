@@ -1,0 +1,13 @@
+{#
+  Available variables:
+  - quote, attribution: plain text.
+#}
+<section{{ attributes.addClass('sec') }} style="padding-top:0">
+  <div class="wrap">
+    <figure class="pq rv">
+      <div class="rule"></div>
+      <blockquote>{{ quote }}</blockquote>
+      {% if attribution %}<figcaption>{{ attribution }}</figcaption>{% endif %}
+    </figure>
+  </div>
+</section>

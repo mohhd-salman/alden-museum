@@ -1,0 +1,33 @@
+/**
+ * @file
+ * What's On row list, ported verbatim from
+ * mockups/alden-page-templates.html.
+ */
+
+.rows { border-top: 1px solid rgba(22, 21, 15, .14); }
+.row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding-block: clamp(1.5rem, 3vw, 2.25rem);
+  border-bottom: 1px solid rgba(22, 21, 15, .14);
+  transition: background .35s var(--ease);
+}
+.row:hover { background: rgba(22, 21, 15, .025); }
+@media (min-width: 52rem) { .row { grid-template-columns: 8rem 1fr 14rem; gap: 2.5rem; align-items: start; } }
+.row .when { font-family: var(--serif); font-size: clamp(1.6rem, 2.2vw, 2.1rem); line-height: 1; letter-spacing: -.02em; }
+.row .when small {
+  display: block;
+  font-family: var(--sans);
+  font-size: .6875rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-top: .4rem;
+  font-weight: 500;
+}
+.row h3 { margin: .4rem 0 .5rem; transition: color .35s var(--ease); }
+.row:hover h3 { color: var(--rust); }
+.row p { color: var(--stone); max-width: 52ch; font-size: .9375rem; }
+.row .thumb .ph { aspect-ratio: 3 / 2; }
+.row:hover .thumb .ph > i { transform: scale(1.06); }

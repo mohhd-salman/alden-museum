@@ -1,0 +1,10 @@
+uuid: 7c3242f4-ed4a-4226-8154-1db3d6383252
+langcode: en
+status: true
+dependencies: {  }
+id: exhibition_grid
+label: 'Exhibition grid'
+icon_uuid: null
+icon_default: null
+description: null
+behavior_plugins: {  }

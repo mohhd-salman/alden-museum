@@ -1,0 +1,21 @@
+uuid: f428167b-9118-487a-b2ee-f5381e4b3dd3
+langcode: en
+status: true
+dependencies: {  }
+name: alden_thumb_480
+label: 'Thumb 480w (1:1)'
+effects:
+  39178645-aaea-44f2-b416-a3a643ede7bf:
+    uuid: 39178645-aaea-44f2-b416-a3a643ede7bf
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 480
+      height: 480
+      anchor: center-center
+  cde97aac-e877-46ba-b05f-27d996d3b23d:
+    uuid: cde97aac-e877-46ba-b05f-27d996d3b23d
+    id: image_convert
+    weight: 10
+    data:
+      extension: webp

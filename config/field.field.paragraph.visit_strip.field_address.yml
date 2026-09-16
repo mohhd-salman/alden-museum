@@ -1,0 +1,19 @@
+uuid: fc149e63-7319-4b83-b432-6e624926cf61
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_address
+    - paragraphs.paragraphs_type.visit_strip
+id: paragraph.visit_strip.field_address
+field_name: field_address
+entity_type: paragraph
+bundle: visit_strip
+label: Address
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

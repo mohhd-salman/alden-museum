@@ -1,0 +1,16 @@
+{#
+  Available variables: quotes: list of { quote, attribution }.
+#}
+<section{{ attributes.addClass('sec', 'on-ink') }}>
+  <div class="wrap">
+    <div class="quotes">
+      {% for item in quotes %}
+        <figure class="quote rv">
+          <div class="rule"></div>
+          <blockquote style="color:var(--bone)">{{ item.quote }}</blockquote>
+          <figcaption style="color:rgba(232,227,215,.6)">{{ item.attribution }}</figcaption>
+        </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>

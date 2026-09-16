@@ -1,0 +1,7 @@
+name: 'Alden core'
+type: module
+description: 'Site-specific logic that must live in a module rather than the theme (module-only hooks, e.g. entity field alterations).'
+package: Custom
+core_version_requirement: ^11
+dependencies:
+  - node

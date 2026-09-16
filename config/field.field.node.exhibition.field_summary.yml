@@ -1,0 +1,19 @@
+uuid: b06bf10c-1109-4293-8486-9c30cf0d774c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.exhibition
+id: node.exhibition.field_summary
+field_name: field_summary
+entity_type: node
+bundle: exhibition
+label: Summary
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

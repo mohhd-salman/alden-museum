@@ -1,0 +1,225 @@
+/**
+ * @file
+ * Site chrome (nav, footer) and shared section layout utilities, ported
+ * verbatim from mockups/alden-homepage-mockup.html.
+ */
+
+/* ---------- nav ---------- */
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem var(--pad);
+  transition: background .45s var(--ease), padding .45s var(--ease), border-color .45s var(--ease);
+  border-bottom: 1px solid transparent;
+}
+/* .solid is the colour/background state: transparent-over-hero pages
+   (front, exhibition detail, membership -- see the .has-hero flag set
+   server-side in page.html.twig) only get it once scrolled; every other
+   template has no hero to sit over and gets it immediately (see
+   js/motion.js). .scrolled is a separate, purely cosmetic padding
+   compaction that always follows scroll position regardless of hero. */
+.nav.solid {
+  background: rgba(250, 247, 240, .93);
+  backdrop-filter: blur(14px);
+  border-bottom-color: rgba(22, 21, 15, .1);
+}
+.nav.scrolled { padding: .8rem var(--pad); }
+.wordmark {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  letter-spacing: -.01em;
+  color: var(--bone);
+  transition: color .45s var(--ease);
+  line-height: 1;
+}
+.nav.solid .wordmark { color: var(--ink); }
+.nav-links { display: flex; gap: clamp(1rem, 2.4vw, 2.4rem); align-items: center; }
+.nav-links a {
+  font-size: .8125rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--bone);
+  position: relative;
+  padding: .35rem 0;
+  transition: color .45s var(--ease);
+}
+.nav.solid .nav-links a { color: var(--ink); }
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .5s var(--ease);
+}
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after,
+.nav-links a[aria-current]::after { transform: scaleX(1); transform-origin: left; }
+.nav-cta {
+  border: 1px solid currentColor;
+  border-radius: 100px;
+  padding: .5rem 1.1rem !important;
+  transition: background .4s var(--ease), color .4s var(--ease);
+}
+.nav-cta::after { display: none; }
+.nav-cta:hover { background: var(--rust); border-color: var(--rust); color: var(--bone) !important; }
+.burger {
+  display: none;
+  background: none;
+  border: 0;
+  color: var(--bone);
+  cursor: pointer;
+  padding: .5rem;
+  transition: color .45s var(--ease);
+}
+.nav.solid .burger { color: var(--ink); }
+.burger svg { width: 26px; height: 26px; }
+
+@media (max-width: 60rem) {
+  .nav-links {
+    position: fixed;
+    inset: 0;
+    background: var(--ink);
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    clip-path: circle(0% at calc(100% - 3rem) 3rem);
+    transition: clip-path .7s var(--ease);
+  }
+  .nav-links[data-open="true"] { clip-path: circle(150% at calc(100% - 3rem) 3rem); }
+  .nav-links a, .nav.solid .nav-links a {
+    color: var(--bone);
+    font-size: 1.5rem;
+    font-family: var(--serif);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .burger { display: block; position: relative; z-index: 2; }
+  .nav-links[data-open="true"] ~ .burger { color: var(--bone); }
+}
+
+/* ---------- buttons & links ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  background: var(--rust);
+  color: var(--bone);
+  border: 0;
+  border-radius: 100px;
+  padding: .95rem 1.8rem;
+  font-family: var(--sans);
+  font-size: .8125rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .4s var(--ease), transform .4s var(--ease);
+}
+.btn:hover { background: var(--rust-lift); transform: translateY(-2px); }
+.btn-ghost { background: transparent; border: 1px solid rgba(250, 247, 240, .45); color: var(--bone); }
+.btn-ghost:hover { background: rgba(250, 247, 240, .12); }
+.btn svg { width: 14px; height: 14px; transition: transform .4s var(--ease); }
+.btn:hover svg { transform: translateX(4px); }
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .75rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--rust);
+  white-space: nowrap;
+}
+.link-arrow svg { width: 15px; height: 15px; transition: transform .4s var(--ease); }
+.link-arrow:hover svg { transform: translateX(5px); }
+
+/* ---------- layout ---------- */
+section { position: relative; }
+.wrap { max-width: var(--max); margin-inline: auto; padding-inline: var(--pad); }
+.sec { padding-block: clamp(3.5rem, 7vw, 6.5rem); }
+.path-frontpage .sec { padding-block: clamp(4.5rem, 10vw, 9rem); }
+.sec-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+.sec-head h2 { max-width: 18ch; }
+.on-ink { background: var(--ink); color: var(--bone); }
+.on-mist { background: var(--mist); }
+
+/* ---------- footer ---------- */
+footer { background: var(--ink); color: var(--mist); }
+.f-grid { display: grid; gap: 2.5rem; grid-template-columns: 1fr; padding-block: clamp(3rem, 6vw, 5rem); }
+@media (min-width: 48rem) { .f-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
+footer .wordmark { color: var(--bone); }
+footer h4 {
+  font-size: .6875rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(232, 227, 215, .55);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+footer ul { list-style: none; display: grid; gap: .6rem; }
+footer a { color: var(--mist); font-size: .9375rem; transition: color .3s var(--ease); }
+footer a:hover { color: var(--rust-lift); }
+.f-base { border-top: 1px solid rgba(232, 227, 215, .14); padding-block: 1.35rem; font-size: .8125rem; color: rgba(232, 227, 215, .5); }
+
+/* ---------- page header (listing + basic) ---------- */
+.phead { padding-top: clamp(7rem, 12vw, 10rem); padding-bottom: clamp(2rem, 4vw, 3.5rem); }
+.crumb { display: flex; gap: .6rem; align-items: center; margin-bottom: 1.5rem; }
+.crumb a { font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--stone); }
+.crumb a:hover { color: var(--rust); }
+.crumb span { color: var(--stone); font-size: .7rem; }
+
+/* ---------- filter tabs ---------- */
+.tabs { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: clamp(2rem, 4vw, 3rem); }
+.tabs a {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: .75rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: none;
+  border: 1px solid rgba(22, 21, 15, .22);
+  border-radius: 100px;
+  padding: .6rem 1.25rem;
+  cursor: pointer;
+  color: var(--ink);
+  transition: .35s var(--ease);
+}
+.tabs a:hover { border-color: var(--ink); }
+.tabs a[aria-pressed="true"] { background: var(--ink); color: var(--bone); border-color: var(--ink); }
+
+/* Views' own default exposed-filter widget is never used for display --
+   the .tabs links above drive the same exposed filters via their GET
+   params, so the auto-generated form is only visual noise. */
+.view-filters { display: none; }
+
+/* ---------- basic page / event / article -- two column with sidebar ---------- */
+.doc { display: grid; grid-template-columns: 1fr; gap: clamp(2.5rem, 5vw, 4.5rem); }
+@media (min-width: 60rem) { .doc { grid-template-columns: minmax(0, 1fr) 19rem; } }
+.aside { align-self: start; }
+@media (min-width: 60rem) { .aside { position: sticky; top: 6rem; } }
+.panel { background: var(--mist); padding: clamp(1.5rem, 2.5vw, 2rem); margin-bottom: 1.25rem; }
+.panel h4 { font-size: .6875rem; letter-spacing: .2em; text-transform: uppercase; color: var(--stone); margin-bottom: 1rem; font-weight: 600; }
+.panel dl { display: grid; gap: .9rem; }
+.panel dt { font-size: .8125rem; color: var(--stone); }
+.panel dd { font-family: var(--serif); font-size: 1.15rem; line-height: 1.25; margin-top: .15rem; }

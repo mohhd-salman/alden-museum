@@ -1,0 +1,13 @@
+{#
+  Available variables: heading, heading_level (default 2), body, link_url, link_text.
+#}
+<section{{ attributes.addClass('cta') }} id="join">
+  <div class="wrap rv">
+    <h{{ heading_level|default(2) }} class="display d-lg">{{ heading }}</h{{ heading_level|default(2) }}>
+    {% if body %}<p>{{ body }}</p>{% endif %}
+    <a href="{{ link_url }}" class="btn">
+      {{ link_text }}
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>

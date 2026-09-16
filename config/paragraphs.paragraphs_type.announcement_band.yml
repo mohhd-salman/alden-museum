@@ -1,0 +1,10 @@
+uuid: e85a60f7-acd3-402b-ba9d-7bce718d185e
+langcode: en
+status: true
+dependencies: {  }
+id: announcement_band
+label: 'Announcement band'
+icon_uuid: null
+icon_default: null
+description: null
+behavior_plugins: {  }

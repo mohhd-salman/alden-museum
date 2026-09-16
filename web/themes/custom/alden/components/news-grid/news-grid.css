@@ -1,0 +1,12 @@
+/**
+ * @file
+ * News/upcoming grid, ported verbatim from
+ * mockups/alden-homepage-mockup.html.
+ */
+
+.news { display: grid; gap: clamp(1.5rem, 3vw, 2.5rem); grid-template-columns: 1fr; }
+@media (min-width: 48rem) { .news { grid-template-columns: repeat(3, 1fr); } }
+.news article .ph { aspect-ratio: 3 / 2; margin-bottom: 1rem; }
+.news article:hover .ph > i { transform: scale(1.06); }
+.news h3 { margin: .5rem 0; transition: color .35s var(--ease); }
+.news article:hover h3 { color: var(--rust); }

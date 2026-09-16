@@ -1,0 +1,16 @@
+global:
+  version: VERSION
+  css:
+    base:
+      css/tokens.css: {}
+      css/fonts.css: {}
+    theme:
+      css/admin.css: {}
+      css/paragraphs.css: {}
+      css/media-library.css: {}
+      css/editor-styles.css: {}
+  js:
+    js/form-feedback.js: {}
+  dependencies:
+    - core/once
+    - core/drupal

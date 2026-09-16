@@ -1,0 +1,52 @@
+/**
+ * @file
+ * Media library grid polish: consistent square thumbnails (Claro scales
+ * images to fit their natural aspect ratio, so a grid of mixed portrait/
+ * landscape uploads reads as uneven) and a visible filename underneath,
+ * once un-hidden via the media_library view-mode configs.
+ */
+
+.media-library-item--grid .field--name-thumbnail {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 2px;
+  background-color: var(--alden-mist);
+}
+
+.media-library-item--grid .field--name-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-library-item--grid .field--name-name {
+  margin-block-start: 0.35rem;
+  overflow: hidden;
+  color: var(--alden-ink);
+  font-family: var(--alden-font-body);
+  font-size: var(--font-size-xs);
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.media-library-item--grid .field--name-name a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.media-library-item--grid .field--name-name a:hover,
+.media-library-item--grid .field--name-name a:focus {
+  color: var(--alden-rust);
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .media-library-item--grid::before {
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+}
+
+.media-library-item--grid:hover::before {
+  border-color: var(--alden-rust);
+}

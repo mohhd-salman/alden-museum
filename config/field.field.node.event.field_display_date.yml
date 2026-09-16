@@ -1,0 +1,21 @@
+uuid: 9c1d2e3f-4a5b-4c6d-8e7f-5a6b7c8d9e1f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_display_date
+    - node.type.event
+  module:
+    - datetime
+id: node.event.field_display_date
+field_name: field_display_date
+entity_type: node
+bundle: event
+label: 'Display date'
+description: "Mirrors field_datetime -- kept in sync automatically on save. Exists so the What's On View can sort events and articles by one shared field."
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,19 @@
+uuid: e6e601fd-f002-40c0-b44e-76493ccc95ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.exhibition_grid
+id: paragraph.exhibition_grid.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: exhibition_grid
+label: Heading
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,19 @@
+uuid: cf6a5ce1-e720-4385-811a-8d42564222b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_admission
+    - paragraphs.paragraphs_type.visit_strip
+id: paragraph.visit_strip.field_admission
+field_name: field_admission
+entity_type: paragraph
+bundle: visit_strip
+label: Admission
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

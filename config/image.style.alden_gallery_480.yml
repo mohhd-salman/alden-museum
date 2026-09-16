@@ -1,0 +1,21 @@
+uuid: a596dce4-b3e8-4a2d-b2eb-7656cdf0eef4
+langcode: en
+status: true
+dependencies: {  }
+name: alden_gallery_480
+label: 'Gallery 480w (scale)'
+effects:
+  88fcbb26-eb85-4e75-85ab-daaeae6404d6:
+    uuid: 88fcbb26-eb85-4e75-85ab-daaeae6404d6
+    id: image_scale
+    weight: 0
+    data:
+      width: 480
+      height: null
+      upscale: false
+  699395e8-26db-4737-8015-7579d8bce5b0:
+    uuid: 699395e8-26db-4737-8015-7579d8bce5b0
+    id: image_convert
+    weight: 10
+    data:
+      extension: webp

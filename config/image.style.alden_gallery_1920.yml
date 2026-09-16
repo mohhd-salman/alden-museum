@@ -1,0 +1,21 @@
+uuid: 776111bb-df0a-4dc1-b8bb-6654c46d1771
+langcode: en
+status: true
+dependencies: {  }
+name: alden_gallery_1920
+label: 'Gallery 1920w (scale)'
+effects:
+  470ccdfc-faa3-41bf-b7ee-4a28efb4bfee:
+    uuid: 470ccdfc-faa3-41bf-b7ee-4a28efb4bfee
+    id: image_scale
+    weight: 0
+    data:
+      width: 1920
+      height: null
+      upscale: false
+  2f4cc85a-ccdd-41e7-8ea1-a3598bb9e2e8:
+    uuid: 2f4cc85a-ccdd-41e7-8ea1-a3598bb9e2e8
+    id: image_convert
+    weight: 10
+    data:
+      extension: webp

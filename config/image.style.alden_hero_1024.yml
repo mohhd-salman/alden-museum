@@ -1,0 +1,21 @@
+uuid: a84492cd-afeb-4349-9daf-5af29df2cf92
+langcode: en
+status: true
+dependencies: {  }
+name: alden_hero_1024
+label: 'Hero 1024w (21:9)'
+effects:
+  3768f978-5364-43e4-b29d-96f8d6c507e9:
+    uuid: 3768f978-5364-43e4-b29d-96f8d6c507e9
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 1024
+      height: 439
+      anchor: center-center
+  c6a3d8d3-1089-4096-8225-a55c1ee779a7:
+    uuid: c6a3d8d3-1089-4096-8225-a55c1ee779a7
+    id: image_convert
+    weight: 10
+    data:
+      extension: webp

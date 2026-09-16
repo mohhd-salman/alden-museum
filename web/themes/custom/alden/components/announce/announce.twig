@@ -1,0 +1,10 @@
+{#
+  Available variables: label, text, url. All plain text -- the mockup's
+  whole line is one link.
+#}
+<div{{ attributes.addClass('announce') }}>
+  <a href="{{ url }}">
+    <strong>{{ label }}</strong>
+    <span>{{ text }}</span>
+  </a>
+</div>

@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Site footer, matching mockups/alden-homepage-mockup.html's four-column
+ * <footer> exactly. Links are hardcoded to match the mockup's own fixed
+ * link set (not menu/block-driven) -- pointed at real routes where a page
+ * exists, and reused sensibly where the mockup names more columns than
+ * the site has distinct pages for (e.g. "Collection" and "Journal" both
+ * lead to What's On, which is where articles actually live).
+ */
+#}
+<footer id="about">
+  <div class="wrap f-grid">
+    <div>
+      <p class="wordmark" style="margin-bottom:.9rem">Alden</p>
+      <p style="max-width:32ch;color:rgba(232,227,215,.7);font-size:.9375rem">An independent charitable trust, open to the public every year since 1962.</p>
+    </div>
+    <div>
+      <h4>Visit</h4>
+      <ul>
+        <li><a href="{{ path('entity.node.canonical', {node: 43}) }}">Opening hours</a></li>
+        <li><a href="{{ path('entity.node.canonical', {node: 43}) }}">Admission</a></li>
+        <li><a href="{{ path('entity.node.canonical', {node: 43}) }}">Getting here</a></li>
+        <li><a href="{{ path('entity.node.canonical', {node: 47}) }}">Accessibility</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="/exhibitions">Exhibitions</a></li>
+        <li><a href="/whats-on">What's On</a></li>
+        <li><a href="/exhibitions">Collection</a></li>
+        <li><a href="/whats-on">Journal</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Support</h4>
+      <ul>
+        <li><a href="{{ path('entity.node.canonical', {node: 45}) }}">Membership</a></li>
+        <li><a href="{{ path('entity.node.canonical', {node: 46}) }}">Donate</a></li>
+        <li><a href="{{ path('entity.node.canonical', {node: 46}) }}">Corporate</a></li>
+        <li><a href="{{ path('entity.node.canonical', {node: 44}) }}">Volunteer</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap f-base">&copy; {{ "now"|date("Y") }} {{ site_name }}. A fictional institution, built as a portfolio piece.</div>
+</footer>

@@ -1,0 +1,14 @@
+/**
+ * @file
+ * Pull quote, ported verbatim from mockups/alden-page-templates.html.
+ */
+
+.pq { text-align: center; max-width: 36rem; margin-inline: auto; }
+.pq blockquote {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+  line-height: 1.18;
+  letter-spacing: -.015em;
+}
+.pq .rule { width: 3rem; height: 2px; background: var(--rust); margin: 0 auto 1.75rem; }
+.pq figcaption { margin-top: 1.5rem; color: var(--stone); font-size: .8125rem; }

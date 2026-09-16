@@ -1,0 +1,49 @@
+/**
+ * @file
+ * Interior-page hero, ported verbatim from
+ * mockups/alden-page-templates.html's .ehero/.escrim/.status-pill rules.
+ */
+
+.ehero {
+  position: relative;
+  min-height: 78svh;
+  display: flex;
+  align-items: flex-end;
+  color: var(--bone);
+  overflow: hidden;
+}
+.ehero .ph { position: absolute; inset: 0; }
+.ehero .ph > i { transform: scale(1.06); }
+.escrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(22, 21, 15, .9) 0%, rgba(22, 21, 15, .4) 42%, rgba(22, 21, 15, .08) 72%, rgba(22, 21, 15, .4) 100%);
+}
+.ehero-inner {
+  position: relative;
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding: 0 var(--pad) clamp(2.5rem, 5vw, 4.5rem);
+}
+.ehero h1 { max-width: 18ch; margin: .7rem 0 0; }
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: rgba(250, 247, 240, .14);
+  border: 1px solid rgba(250, 247, 240, .3);
+  border-radius: 100px;
+  padding: .35rem .9rem;
+  font-size: .6875rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.status-pill::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rust-lift);
+}

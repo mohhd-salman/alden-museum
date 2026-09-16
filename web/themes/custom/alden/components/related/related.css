@@ -1,0 +1,12 @@
+/**
+ * @file
+ * Related events, ported verbatim from mockups/alden-page-templates.html.
+ */
+
+.rel { display: grid; gap: 1.75rem; grid-template-columns: 1fr; }
+@media (min-width: 48rem) {
+  .rel { grid-template-columns: repeat(3, 1fr); }
+}
+.rel .ph { aspect-ratio: 3 / 2; margin-bottom: .9rem; }
+.rel:hover .ph > i { transform: scale(1.05); }
+.rel h3 { margin: .4rem 0; }

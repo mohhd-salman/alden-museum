@@ -1,0 +1,21 @@
+uuid: 1a2b3c4d-5e6f-4a1b-8c2d-9e0f1a2b3c4d
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_eyebrow
+field_name: field_eyebrow
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

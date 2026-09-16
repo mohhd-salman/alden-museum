@@ -1,0 +1,21 @@
+uuid: 1d2e3f4a-5b6c-4d7e-9f8a-6b7c8d9e1f2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_display_date
+    - node.type.article
+  module:
+    - datetime
+id: node.article.field_display_date
+field_name: field_display_date
+entity_type: node
+bundle: article
+label: 'Display date'
+description: "Mirrors the article's created date automatically on save. Exists so the What's On View can sort events and articles by one shared field."
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

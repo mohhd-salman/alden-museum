@@ -1,0 +1,21 @@
+uuid: e6055163-460c-46d8-803f-530ebf4931dd
+langcode: en
+status: true
+dependencies: {  }
+name: alden_split_480
+label: 'Split 480w (1:1)'
+effects:
+  bcdb072d-763f-40fe-ba26-158afdd2a320:
+    uuid: bcdb072d-763f-40fe-ba26-158afdd2a320
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 480
+      height: 480
+      anchor: center-center
+  8e0921d0-5665-4b62-a27a-f10f36c1b5c2:
+    uuid: 8e0921d0-5665-4b62-a27a-f10f36c1b5c2
+    id: image_convert
+    weight: 10
+    data:
+      extension: webp

@@ -1,0 +1,21 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Quote row'
+status: stable
+description: Three pull quotes on ink, each with a rust rule above and an attribution.
+props:
+  type: object
+  properties:
+    quotes:
+      type: array
+      items:
+        type: object
+        properties:
+          quote:
+            type: string
+          attribution:
+            type: string
+        required:
+          - quote
+          - attribution
+  required:
+    - quotes

@@ -1,0 +1,19 @@
+uuid: 463d09fc-5f97-4eaf-886e-36932f9c1bdd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.featured_grid
+id: paragraph.featured_grid.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: featured_grid
+label: Heading
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

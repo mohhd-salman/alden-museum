@@ -1,0 +1,21 @@
+uuid: dfcff3e6-f336-478d-9cfb-d69bf7d93fcc
+langcode: en
+status: true
+dependencies: {  }
+name: alden_card_1024
+label: 'Card 1024w (4:3)'
+effects:
+  392510ed-93a5-47a4-b3a5-fd6ad85cfc79:
+    uuid: 392510ed-93a5-47a4-b3a5-fd6ad85cfc79
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 1024
+      height: 768
+      anchor: center-center
+  bfa5a62b-0a5d-4326-92be-2d4b539a3cac:
+    uuid: bfa5a62b-0a5d-4326-92be-2d4b539a3cac
+    id: image_convert
+    weight: 10
+    data:
+      extension: webp

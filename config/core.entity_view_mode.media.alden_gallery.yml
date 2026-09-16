@@ -1,0 +1,11 @@
+uuid: cbe2971e-a746-4437-849a-2d1b0f3a2b20
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.alden_gallery
+label: 'Alden: gallery (scale)'
+description: null
+targetEntityType: media
+cache: true

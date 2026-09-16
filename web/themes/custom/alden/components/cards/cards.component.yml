@@ -1,0 +1,41 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Cards
+status: stable
+description: Homepage exhibitions grid -- the first card spans two of three columns.
+props:
+  type: object
+  properties:
+    eyebrow:
+      type: string
+    heading:
+      type: string
+    heading_level:
+      type: integer
+      minimum: 1
+      maximum: 6
+      default: 2
+    link_url:
+      type: string
+    link_text:
+      type: string
+    cards:
+      type: array
+      items:
+        type: object
+        properties:
+          ph_class:
+            type: string
+          meta:
+            type: string
+          title:
+            type: string
+          url:
+            type: string
+          summary:
+            type: string
+        required:
+          - ph_class
+          - title
+  required:
+    - heading
+    - cards

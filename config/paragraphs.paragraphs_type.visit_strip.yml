@@ -1,0 +1,10 @@
+uuid: a7981562-335b-4a19-b61c-91e529e0ad57
+langcode: en
+status: true
+dependencies: {  }
+id: visit_strip
+label: 'Visit strip'
+icon_uuid: null
+icon_default: null
+description: null
+behavior_plugins: {  }

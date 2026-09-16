@@ -1,0 +1,42 @@
+alden.fluid:
+  label: Fluid (sizes-based)
+  mediaQuery: ''
+  weight: -1
+  multipliers:
+    - 1x
+alden.tiny:
+  label: Tiny
+  mediaQuery: 'all and (min-width: 240px)'
+  weight: 0
+  multipliers:
+    - 1x
+alden.narrow:
+  label: Narrow
+  mediaQuery: 'all and (min-width: 480px)'
+  weight: 1
+  multipliers:
+    - 1x
+alden.medium:
+  label: Medium
+  mediaQuery: 'all and (min-width: 768px)'
+  weight: 2
+  multipliers:
+    - 1x
+alden.wide:
+  label: Wide
+  mediaQuery: 'all and (min-width: 1024px)'
+  weight: 3
+  multipliers:
+    - 1x
+alden.xwide:
+  label: Extra wide
+  mediaQuery: 'all and (min-width: 1440px)'
+  weight: 4
+  multipliers:
+    - 1x
+alden.xxwide:
+  label: Extra extra wide
+  mediaQuery: 'all and (min-width: 1920px)'
+  weight: 5
+  multipliers:
+    - 1x

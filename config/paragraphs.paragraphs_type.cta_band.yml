@@ -1,0 +1,10 @@
+uuid: 7729e171-699a-48ee-aa76-a7e3e464fe86
+langcode: en
+status: true
+dependencies: {  }
+id: cta_band
+label: 'CTA band'
+icon_uuid: null
+icon_default: null
+description: null
+behavior_plugins: {  }

@@ -1,0 +1,10 @@
+uuid: 6f950dfe-dcd1-4e66-9d06-73cb270f3592
+langcode: en
+status: true
+dependencies: {  }
+id: testimonial_row
+label: 'Testimonial row'
+icon_uuid: null
+icon_default: null
+description: null
+behavior_plugins: {  }

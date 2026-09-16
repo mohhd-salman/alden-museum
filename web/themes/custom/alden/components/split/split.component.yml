@@ -1,0 +1,31 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Split
+status: stable
+description: Overlapping image/text split -- the text card shifts -8% over the image, reversible.
+props:
+  type: object
+  properties:
+    eyebrow:
+      type: string
+    heading:
+      type: string
+    heading_level:
+      type: integer
+      minimum: 1
+      maximum: 6
+      default: 2
+    body:
+      type: string
+      title: 'Processed HTML body'
+    link_url:
+      type: string
+    link_text:
+      type: string
+    reversed:
+      type: boolean
+      default: false
+    ph_class:
+      type: string
+  required:
+    - heading
+    - ph_class

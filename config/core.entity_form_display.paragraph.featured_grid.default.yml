@@ -1,0 +1,34 @@
+uuid: c923b8b3-1cec-4326-8667-acc2e7e460f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.featured_grid.field_grid_items
+    - field.field.paragraph.featured_grid.field_title
+    - paragraphs.paragraphs_type.featured_grid
+id: paragraph.featured_grid.default
+targetEntityType: paragraph
+bundle: featured_grid
+mode: default
+content:
+  field_grid_items:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

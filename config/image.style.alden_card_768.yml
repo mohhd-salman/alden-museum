@@ -1,0 +1,21 @@
+uuid: 1762c784-1d64-4bd7-ad8c-f20044df3742
+langcode: en
+status: true
+dependencies: {  }
+name: alden_card_768
+label: 'Card 768w (4:3)'
+effects:
+  329ce179-e8b5-4c16-abdd-d5016c364c54:
+    uuid: 329ce179-e8b5-4c16-abdd-d5016c364c54
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 768
+      height: 576
+      anchor: center-center
+  e561c9ab-5d89-4f2f-aa4d-dcc816d05260:
+    uuid: e561c9ab-5d89-4f2f-aa4d-dcc816d05260
+    id: image_convert
+    weight: 10
+    data:
+      extension: webp

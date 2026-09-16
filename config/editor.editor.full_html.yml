@@ -21,6 +21,7 @@ settings:
       - removeFormat
       - '|'
       - link
+      - style
       - '|'
       - bulletedList
       - numberedList
@@ -83,9 +84,6 @@ settings:
       enabled_headings:
         - heading2
         - heading3
-        - heading4
-        - heading5
-        - heading6
     ckeditor5_imageResize:
       allow_resize: true
     ckeditor5_list:
@@ -96,6 +94,17 @@ settings:
       multiBlock: true
     ckeditor5_sourceEditing:
       allowed_tags: {  }
+    ckeditor5_style:
+      styles:
+        -
+          label: 'Rust text'
+          element: '<span class="text-rust">'
+        -
+          label: 'Stone text'
+          element: '<span class="text-stone">'
+        -
+          label: Highlight
+          element: '<mark class="bg-mist">'
 image_upload:
   status: true
   scheme: public

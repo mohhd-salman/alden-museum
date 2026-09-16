@@ -1,0 +1,51 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'News grid'
+status: stable
+description: Three-across article/event/exhibition preview grid, with an optional per-card tag badge.
+props:
+  type: object
+  properties:
+    eyebrow:
+      type: string
+    on_mist:
+      type: boolean
+      default: false
+      title: 'True for the "What''s On" preview (mist background); false for "Upcoming exhibitions" (plain bone).'
+    heading:
+      type: string
+    heading_level:
+      type: integer
+      minimum: 1
+      maximum: 6
+      default: 2
+    link_url:
+      type: string
+    link_text:
+      type: string
+    cards:
+      type: array
+      items:
+        type: object
+        properties:
+          ph_class:
+            type: string
+          tag:
+            type: string
+            title: 'Optional badge, e.g. "Curator''s talk"'
+          tag_class:
+            type: string
+            title: 'Optional modifier: "ev" (rust) or blank (ink)'
+          title:
+            type: string
+          url:
+            type: string
+          meta:
+            type: string
+          summary:
+            type: string
+        required:
+          - ph_class
+          - title
+  required:
+    - heading
+    - cards

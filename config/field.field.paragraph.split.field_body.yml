@@ -1,0 +1,22 @@
+uuid: 6fc996e5-0b04-4aee-9769-513509b2c5d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body
+    - paragraphs.paragraphs_type.split
+  module:
+    - text
+id: paragraph.split.field_body
+field_name: field_body
+entity_type: paragraph
+bundle: split
+label: Body
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

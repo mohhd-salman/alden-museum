@@ -1,0 +1,26 @@
+/**
+ * @file
+ * Design tokens, ported verbatim from the approved mockups
+ * (mockups/alden-homepage-mockup.html, mockups/alden-page-templates.html).
+ * Values and names are kept exactly as given there, including the
+ * unprefixed custom-property names -- this is a deliberate match, not an
+ * oversight against the theme's earlier --alden-* convention.
+ */
+
+:root {
+  --ink: #16150F;
+  --stone: #6B6A62;
+  --rust: #A6462A;
+  --rust-lift: #C25736;
+  --mist: #E8E3D7;
+  --bone: #FAF7F0;
+
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --pad: clamp(1.25rem, 5vw, 4.5rem);
+  --max: 84rem;
+  --measure: 38rem;
+
+  --ease: cubic-bezier(.16, 1, .3, 1);
+}

@@ -1,0 +1,26 @@
+{#
+  Available variables:
+  - eyebrow, heading, heading_level (default 2).
+  - stats: list of { value, plain, label }. The visible text starts at
+    the real, comma-formatted final value (correct with no JS); motion.js
+    only replaces it temporarily to animate the count-up, then restores
+    the same text it started with.
+#}
+<section{{ attributes.addClass('sec', 'on-ink') }}>
+  <div class="wrap">
+    <div class="sec-head rv" style="margin-bottom:clamp(2.5rem,5vw,4rem)">
+      <div>
+        {% if eyebrow %}<p class="eyebrow on-dark">{{ eyebrow }}</p>{% endif %}
+        <h{{ heading_level|default(2) }} class="display d-md" style="color:var(--bone)">{{ heading }}</h{{ heading_level|default(2) }}>
+      </div>
+    </div>
+    <div class="stats">
+      {% for stat in stats %}
+        <div class="stat rv">
+          <div class="num" data-count="{{ stat.value }}"{% if stat.plain %} data-plain="1"{% endif %}>{{ stat.plain ? stat.value : stat.value|number_format(0, '.', ',') }}</div>
+          <p class="lbl meta" style="color:rgba(232,227,215,.6)">{{ stat.label }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

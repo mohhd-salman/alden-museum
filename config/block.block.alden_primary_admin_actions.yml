@@ -1,0 +1,20 @@
+uuid: 59142347-31df-4817-b195-47bbc1f973cf
+langcode: en
+status: true
+dependencies:
+  theme:
+    - alden
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: alden_primary_admin_actions
+theme: alden
+region: content
+weight: -23
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

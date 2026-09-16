@@ -1,0 +1,41 @@
+{#
+  Available variables:
+  - eyebrow, heading, heading_level (default 2).
+  - link_url, link_text: optional link, e.g. "Full programme".
+  - cards: list of { ph_class, tag, tag_class, title, url, meta, summary }.
+    Two card shapes, matching the mockup exactly:
+    - tag set (What's On preview): image, tag badge, title, meta.
+    - tag unset (Upcoming exhibitions): image, meta, title, summary.
+#}
+<section{{ attributes.addClass('sec', on_mist ? 'on-mist' : '') }}>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        {% if eyebrow %}<p class="eyebrow">{{ eyebrow }}</p>{% endif %}
+        <h{{ heading_level|default(2) }} class="display d-lg">{{ heading }}</h{{ heading_level|default(2) }}>
+      </div>
+      {% if link_url %}
+        <a href="{{ link_url }}" class="link-arrow">
+          {{ link_text }}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      {% endif %}
+    </div>
+    <div class="news">
+      {% for card in cards %}
+        <a class="rv" href="{{ card.url }}"><article>
+          <div class="ph {{ card.ph_class }}"><i></i></div>
+          {% if card.tag %}
+            <span class="tag {{ card.tag_class }}">{{ card.tag }}</span>
+            <h3 class="display d-sm">{{ card.title }}</h3>
+            {% if card.meta %}<p class="meta">{{ card.meta }}</p>{% endif %}
+          {% else %}
+            {% if card.meta %}<p class="meta" style="margin-bottom:.5rem">{{ card.meta }}</p>{% endif %}
+            <h3 class="display d-sm">{{ card.title }}</h3>
+            {% if card.summary %}<p style="color:var(--stone)">{{ card.summary }}</p>{% endif %}
+          {% endif %}
+        </article></a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

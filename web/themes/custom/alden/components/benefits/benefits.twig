@@ -1,0 +1,19 @@
+{#
+  Available variables:
+  - eyebrow: optional, e.g. "What membership does".
+  - items: list of { number (e.g. "01"), heading, body }.
+#}
+<section{{ attributes.addClass('sec', 'on-mist') }}>
+  <div class="wrap">
+    {% if eyebrow %}<p class="eyebrow rv" style="margin-bottom:clamp(2rem,4vw,3rem)">{{ eyebrow }}</p>{% endif %}
+    <div class="benefits">
+      {% for item in items %}
+        <div class="benefit rv">
+          <div class="n">{{ item.number }}</div>
+          <h3 class="display d-sm">{{ item.heading }}</h3>
+          <p>{{ item.body }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

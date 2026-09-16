@@ -1,0 +1,21 @@
+uuid: 55bf863f-20d0-4486-affd-c3d7a641d165
+langcode: en
+status: true
+dependencies: {  }
+name: alden_gallery_1024
+label: 'Gallery 1024w (scale)'
+effects:
+  7bc8f130-be89-4b57-9a02-8fd4674109e2:
+    uuid: 7bc8f130-be89-4b57-9a02-8fd4674109e2
+    id: image_scale
+    weight: 0
+    data:
+      width: 1024
+      height: null
+      upscale: false
+  ed1320db-6ba0-49f1-97f1-ab7ec0de43a3:
+    uuid: ed1320db-6ba0-49f1-97f1-ab7ec0de43a3
+    id: image_convert
+    weight: 10
+    data:
+      extension: webp

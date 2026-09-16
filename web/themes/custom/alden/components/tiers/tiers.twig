@@ -1,0 +1,22 @@
+{#
+  Available variables:
+  - tiers: list of { name, price, per, benefits: [string], featured: bool,
+    flag, join_url }.
+#}
+<div class="tiers">
+  {% for tier in tiers %}
+    <div class="tier{{ tier.featured ? ' feat' : '' }} rv">
+      {% if tier.flag %}<span class="flag">{{ tier.flag }}</span>{% endif %}
+      <h3 class="display d-sm">{{ tier.name }}</h3>
+      <div class="price">{{ tier.price }}</div>
+      <p class="per">{{ tier.per }}</p>
+      <ul>
+        {% for benefit in tier.benefits %}<li>{{ benefit }}</li>{% endfor %}
+      </ul>
+      <a href="{{ tier.join_url|default('/membership') }}" class="btn">
+        Join
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,19 @@
+uuid: 5fda9eec-4508-416f-b738-f3d2d85d07ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.announcement_band
+id: paragraph.announcement_band.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: announcement_band
+label: 'Notice text'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

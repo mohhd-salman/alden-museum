@@ -1,0 +1,35 @@
+name: alden
+type: theme
+'base theme': false
+version: 1.0.0
+libraries:
+  - alden/global-tokens
+  - alden/base
+  - alden/messages
+  - core/normalize
+libraries-extend:
+  user/drupal.user:
+    - alden/user
+  core/drupal.dropbutton:
+    - alden/dropbutton
+  core/drupal.dialog:
+    - alden/dialog
+  file/drupal.file:
+    - alden/file
+  core/drupal.item-list:
+    - alden/item-list
+  core/drupal.progress:
+    - alden/progress
+  core/drupal.tablesort:
+    - alden/drupal.tablesort
+description: ''
+core_version_requirement: ^11
+generator: 'starterkit_theme:11.4.6'
+regions:
+  header: Header
+  primary_menu: 'Primary menu'
+  breadcrumb: Breadcrumb
+  content: Content
+  sidebar: Sidebar
+  footer_top: 'Footer top'
+  footer_bottom: 'Footer bottom'

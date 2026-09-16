@@ -1,0 +1,60 @@
+uuid: 8ff6179a-4cc6-4e1b-96d2-1418cfa2fc06
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.exhibition.field_components
+    - field.field.node.exhibition.field_curator
+    - field.field.node.exhibition.field_end_date
+    - field.field.node.exhibition.field_gallery
+    - field.field.node.exhibition.field_hero_media
+    - field.field.node.exhibition.field_metatag
+    - field.field.node.exhibition.field_start_date
+    - field.field.node.exhibition.field_summary
+    - field.field.node.exhibition.field_topics
+    - node.type.exhibition
+  module:
+    - datetime
+id: node.exhibition.teaser
+targetEntityType: node
+bundle: exhibition
+mode: teaser
+content:
+  field_hero_media:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: alden_card
+      link: false
+    third_party_settings: {  }
+    weight: -10
+    region: content
+  field_start_date:
+    type: datetime_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: html_date
+    third_party_settings: {  }
+    weight: -5
+    region: content
+  field_summary:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_components: true
+  field_curator: true
+  field_end_date: true
+  field_gallery: true
+  field_metatag: true
+  field_topics: true

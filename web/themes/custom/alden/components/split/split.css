@@ -1,0 +1,32 @@
+/**
+ * @file
+ * Split component, ported verbatim from
+ * mockups/alden-homepage-mockup.html -- including the source order of
+ * `.split-body`'s mobile padding rule, which must stay before the
+ * `@media(min-width:56rem)` block that overrides it (the desktop rule
+ * depends on cascade order, not just specificity, to win).
+ */
+
+.split { display: grid; gap: 0; align-items: center; grid-template-columns: 1fr; }
+.split-body { padding: 2rem 0 0; }
+.split-media .ph { aspect-ratio: 4 / 3; }
+
+@media (min-width: 56rem) {
+  .split { grid-template-columns: 1.15fr .85fr; }
+  .split.rev .split-media { order: 2; }
+  .split.rev .split-body { order: 1; }
+  .split-media .ph { aspect-ratio: 1 / 1.05; }
+  .split-body {
+    padding: clamp(2.5rem, 3.5vw, 3.75rem);
+    margin-left: -8%;
+    background: var(--bone);
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 30px 70px -40px rgba(22, 21, 15, .4);
+  }
+  .split.rev .split-body { margin-left: 0; margin-right: -8%; }
+}
+
+.split-body h2 { margin: .7rem 0 1.1rem; }
+.split-body p { color: var(--stone); }
+.split-body .btn { margin-top: 1.75rem; }

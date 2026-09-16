@@ -1,0 +1,19 @@
+uuid: faf8e5af-1896-48e6-9a81-6abb42d9170a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_testimonial_name
+    - paragraphs.paragraphs_type.testimonial_row
+id: paragraph.testimonial_row.field_testimonial_name
+field_name: field_testimonial_name
+entity_type: paragraph
+bundle: testimonial_row
+label: 'Names (matching the quotes above)'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

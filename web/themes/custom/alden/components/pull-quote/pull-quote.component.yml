@@ -1,0 +1,13 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Pull quote
+status: stable
+description: Single centered blockquote with a rule and figcaption, wrapped in its own section.
+props:
+  type: object
+  properties:
+    quote:
+      type: string
+    attribution:
+      type: string
+  required:
+    - quote

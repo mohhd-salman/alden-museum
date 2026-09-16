@@ -1,0 +1,21 @@
+uuid: 27095fad-b3d5-4859-ade8-af304c6b46fc
+langcode: en
+status: true
+dependencies: {  }
+name: alden_card_1920
+label: 'Card 1920w (4:3)'
+effects:
+  e22bdd75-0622-4ac2-a8b4-134e277f41f2:
+    uuid: e22bdd75-0622-4ac2-a8b4-134e277f41f2
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 1920
+      height: 1440
+      anchor: center-center
+  71d82531-fd71-4bb9-9eb9-2c633c37617e:
+    uuid: 71d82531-fd71-4bb9-9eb9-2c633c37617e
+    id: image_convert
+    weight: 10
+    data:
+      extension: webp

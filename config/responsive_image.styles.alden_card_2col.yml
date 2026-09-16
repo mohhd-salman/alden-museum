@@ -1,0 +1,29 @@
+uuid: cf431cc2-0e79-47bb-940c-5dc20871e185
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.alden_card_1024
+    - image.style.alden_card_1440
+    - image.style.alden_card_1920
+    - image.style.alden_card_480
+    - image.style.alden_card_768
+  theme:
+    - alden
+id: alden_card_2col
+label: 'Card (2 columns)'
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: '(min-width: 80rem) 37.75rem, (min-width: 48rem) calc((100vw - 4.5rem) / 2), calc(100vw - 3rem)'
+      sizes_image_styles:
+        - alden_card_1920
+        - alden_card_1440
+        - alden_card_1024
+        - alden_card_768
+        - alden_card_480
+    breakpoint_id: alden.fluid
+    multiplier: 1x
+breakpoint_group: alden
+fallback_image_style: alden_card_480

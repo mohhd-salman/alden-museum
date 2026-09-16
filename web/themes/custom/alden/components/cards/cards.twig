@@ -1,0 +1,34 @@
+{#
+  Available variables:
+  - eyebrow, heading, heading_level (default 2).
+  - link_url, link_text: optional "All exhibitions" link.
+  - cards: list of { ph_class, meta, title, url, summary }. The first
+    card spans two of three grid columns -- pure CSS (nth-child), no
+    per-card flag needed.
+#}
+<section{{ attributes.addClass('sec') }}>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        {% if eyebrow %}<p class="eyebrow">{{ eyebrow }}</p>{% endif %}
+        <h{{ heading_level|default(2) }} class="display d-lg">{{ heading }}</h{{ heading_level|default(2) }}>
+      </div>
+      {% if link_url %}
+        <a href="{{ link_url }}" class="link-arrow">
+          {{ link_text }}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      {% endif %}
+    </div>
+    <div class="cards">
+      {% for card in cards %}
+        <a class="card rv" href="{{ card.url }}">
+          <div class="ph {{ card.ph_class }}"><i></i></div>
+          {% if card.meta %}<p class="status meta">{{ card.meta }}</p>{% endif %}
+          <h3 class="display d-sm">{{ card.title }}</h3>
+          {% if card.summary %}<p>{{ card.summary }}</p>{% endif %}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

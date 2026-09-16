@@ -1,0 +1,16 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Related
+status: stable
+description: 'Exhibition detail''s "Related events" section on an ink background.'
+props:
+  type: object
+  properties:
+    eyebrow:
+      type: string
+    items:
+      type: array
+      title: 'List of { ph_class, tag, tag_class, title, url, meta }'
+      items:
+        type: object
+  required:
+    - items

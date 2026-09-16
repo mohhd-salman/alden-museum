@@ -1,0 +1,16 @@
+{#
+  Available variables:
+  - title, ph_class.
+  - status_text: exhibition detail's "On view now" pill.
+  - eyebrow: membership's small label above the title. Mutually exclusive
+    with status_text in the mockup -- pass whichever the page needs.
+  - min_height: CSS value, e.g. "58svh"; omit for the default 78svh.
+#}
+<header{{ attributes.addClass('ehero') }}{% if min_height %} style="min-height:{{ min_height }}"{% endif %}>
+  <div class="ph {{ ph_class }}"><i></i></div><div class="escrim"></div>
+  <div class="ehero-inner">
+    {% if status_text %}<span class="status-pill">{{ status_text }}</span>{% endif %}
+    {% if eyebrow %}<p class="eyebrow on-dark">{{ eyebrow }}</p>{% endif %}
+    <h1 class="display d-xl">{{ title }}</h1>
+  </div>
+</header>

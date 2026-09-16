@@ -1,0 +1,22 @@
+uuid: 68e4d457-60e1-45f5-b427-e454a7abcb10
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - alden_admin
+_core:
+  default_config_hash: BZ5tpW7H8X4PVGRm3MImTIHd2tN0eF7zOtp4SpRYUA0
+id: alden_admin_messages
+theme: alden_admin
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

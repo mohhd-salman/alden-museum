@@ -1,0 +1,7 @@
+{#
+  Glue: testimonial_row paragraph -> alden:quote-row SDC (the homepage's
+  three-quote curatorial pull-quotes, not visitor testimonials -- reuses
+  the testimonial_row bundle's three-parallel-field shape). Props are
+  built in AldenHooks::preprocessParagraph() (see src/Hook/AldenHooks.php).
+#}
+{{ include('alden:quote-row', alden, with_context = false) }}

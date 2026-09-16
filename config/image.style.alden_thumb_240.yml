@@ -1,0 +1,21 @@
+uuid: 22fa7a64-6257-42f2-9c7a-ecc17493dac8
+langcode: en
+status: true
+dependencies: {  }
+name: alden_thumb_240
+label: 'Thumb 240w (1:1)'
+effects:
+  326b0f0c-2965-4d5c-8173-c097621015d8:
+    uuid: 326b0f0c-2965-4d5c-8173-c097621015d8
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 240
+      height: 240
+      anchor: center-center
+  3ab90791-73bc-49bd-9e3f-8368217abf95:
+    uuid: 3ab90791-73bc-49bd-9e3f-8368217abf95
+    id: image_convert
+    weight: 10
+    data:
+      extension: webp

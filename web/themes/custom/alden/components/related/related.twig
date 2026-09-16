@@ -1,0 +1,21 @@
+{#
+  Available variables:
+  - eyebrow: optional, e.g. "Related events".
+  - items: list of { ph_class, tag, tag_class, title, url, meta }.
+    tag_class is "ev" (rust) or "jr" (stone), matching .tag in layout.
+#}
+<section{{ attributes.addClass('sec', 'on-ink') }}>
+  <div class="wrap">
+    {% if eyebrow %}<p class="eyebrow on-dark rv" style="margin-bottom:1.75rem">{{ eyebrow }}</p>{% endif %}
+    <div class="rel rv">
+      {% for item in items %}
+        <a href="{{ item.url }}">
+          <div class="ph {{ item.ph_class }}"><i></i></div>
+          {% if item.tag %}<span class="tag {{ item.tag_class }}">{{ item.tag }}</span>{% endif %}
+          <h3 class="display d-sm" style="color:var(--bone)">{{ item.title }}</h3>
+          {% if item.meta %}<p class="meta">{{ item.meta }}</p>{% endif %}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

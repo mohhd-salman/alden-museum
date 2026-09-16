@@ -1,0 +1,32 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Visit
+status: stable
+description: Four-column practical-information band -- hours, admission, getting here, access.
+props:
+  type: object
+  properties:
+    eyebrow:
+      type: string
+    heading:
+      type: string
+    heading_level:
+      type: integer
+      minimum: 1
+      maximum: 6
+      default: 2
+    items:
+      type: array
+      items:
+        type: object
+        properties:
+          label:
+            type: string
+          value:
+            type: string
+            title: 'May contain <br>'
+        required:
+          - label
+          - value
+  required:
+    - heading
+    - items

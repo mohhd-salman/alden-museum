@@ -1,0 +1,32 @@
+uuid: 35aad9f2-4f7d-4def-bf4a-3c59c6d5afd3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.announcement_band.field_link
+    - field.field.paragraph.announcement_band.field_title
+    - paragraphs.paragraphs_type.announcement_band
+id: paragraph.announcement_band.default
+targetEntityType: paragraph
+bundle: announcement_band
+mode: default
+content:
+  field_link:
+    type: link_default
+    weight: 1
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

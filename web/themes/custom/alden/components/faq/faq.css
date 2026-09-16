@@ -1,0 +1,111 @@
+/**
+ * @file
+ * FAQ -- a single continuous list separated by hairline rules (no
+ * bordered cards), a numbered gutter matching the benefits row's .n
+ * treatment, and an expand/collapse-all control styled like
+ * .link-arrow. The open/close height transition is handled by
+ * js/faq.js (native <details> can't transition from its hidden state,
+ * so the toggle is intercepted and height is animated manually;
+ * prefers-reduced-motion is handled there for the JS-driven part, and
+ * here for the CSS-driven marker rotation).
+ *
+ * Cascade order note: every rule below is declared once, in the base
+ * (non-media) section first; both @media blocks come last, after every
+ * base declaration, so nothing here can be overridden by an
+ * earlier-in-source base rule the way the split component's mobile
+ * padding once could.
+ */
+
+.faq { border-top: 1px solid rgba(22, 21, 15, .14); }
+
+.faq details {
+  border-bottom: 1px solid rgba(22, 21, 15, .14);
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+  background: none;
+}
+
+.faq-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.faq-toggle-all {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: .75rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--rust);
+  white-space: nowrap;
+}
+
+.faq summary {
+  display: grid;
+  grid-template-columns: 3rem 1fr 2rem;
+  gap: 1.5rem;
+  align-items: start;
+  padding: 1.75rem 0;
+  cursor: pointer;
+}
+.faq summary::-webkit-details-marker,
+.faq summary::marker { display: none; content: ""; }
+
+.faq .num {
+  font-size: .6875rem;
+  letter-spacing: .18em;
+  color: var(--rust);
+  font-weight: 600;
+  padding-top: .45rem;
+}
+
+.faq .q {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+  line-height: 1.25;
+}
+
+.faq .mark {
+  justify-self: end;
+  color: var(--rust);
+  font-family: var(--sans);
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: transform .35s var(--ease);
+}
+.faq .mark::before { content: "+"; }
+.faq details[open] .mark { transform: rotate(45deg); }
+
+.faq .answer {
+  grid-column: 2;
+  padding: 0 0 1.75rem 4.5rem;
+  max-width: 58ch;
+  color: var(--stone);
+  overflow: hidden;
+  height: 0;
+  transition: height .35s var(--ease);
+}
+.faq details[open] .answer { height: auto; }
+
+@media (max-width: 40rem) {
+  .faq summary { grid-template-columns: 1fr 2rem; row-gap: .5rem; }
+  .faq .num { grid-column: 1 / -1; padding-top: 0; }
+  .faq .answer { padding: 0 0 1.5rem 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq .answer { transition: none; }
+  .faq .mark { transition: none; }
+}

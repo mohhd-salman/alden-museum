@@ -1,0 +1,43 @@
+{#
+  Shared two-column doc/aside layout (basic pages, events, articles),
+  ported from mockups/alden-page-templates.html's "4. BASIC PAGE".
+  Expects `alden_doc`: { eyebrow, h1, date_line, body (processed HTML),
+  panels: [{ heading, rows: [{dt, dd}] }], cta: { url, text } }, built in
+  AldenHooks::preprocessBasicPageNode()/preprocessEventNode()/
+  preprocessArticleNode() (see src/Hook/AldenHooks.php).
+#}
+<header class="phead wrap">
+  <nav class="crumb">
+    <a href="/">Home</a><span>/</span><a aria-current="page">{{ alden_doc.eyebrow }}</a>
+  </nav>
+  <p class="eyebrow">{{ alden_doc.eyebrow }}</p>
+  <h1 class="display d-lg" style="max-width:16ch;margin-top:.6rem">{{ alden_doc.h1 }}</h1>
+</header>
+<section class="sec" style="padding-top:clamp(1rem,2vw,2rem)">
+  <div class="wrap">
+    <div class="doc">
+      <div class="body-text rv">
+        {% if alden_doc.date_line %}<p class="lede" style="margin-bottom:2rem">{{ alden_doc.date_line }}</p>{% endif %}
+        {{ alden_doc.body|raw }}
+      </div>
+      <aside class="aside rv">
+        {% for panel in alden_doc.panels %}
+          <div class="panel">
+            <h4>{{ panel.heading }}</h4>
+            <dl>
+              {% for row in panel.rows %}
+                <dt>{{ row.dt }}</dt><dd>{{ row.dd|raw }}</dd>
+              {% endfor %}
+            </dl>
+          </div>
+        {% endfor %}
+        {% if alden_doc.cta %}
+          <a href="{{ alden_doc.cta.url }}" class="btn" style="width:100%;justify-content:center">
+            {{ alden_doc.cta.text }}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        {% endif %}
+      </aside>
+    </div>
+  </div>
+</section>

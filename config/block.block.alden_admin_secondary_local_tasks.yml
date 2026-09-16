@@ -1,0 +1,22 @@
+uuid: d2afbd3d-d2c1-4398-bf70-b9fef5c5b7c0
+langcode: en
+status: false
+dependencies:
+  theme:
+    - alden_admin
+_core:
+  default_config_hash: ydSxdq7R66I8UMC460rOzlfzvlUL4VRbdwc6z9DWaUI
+id: alden_admin_secondary_local_tasks
+theme: alden_admin
+region: sidebar_first
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

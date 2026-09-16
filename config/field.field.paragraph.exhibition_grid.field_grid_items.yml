@@ -1,0 +1,24 @@
+uuid: c4214092-46e0-4c45-a762-d139f7f19b75
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_grid_items
+    - node.type.exhibition
+    - paragraphs.paragraphs_type.exhibition_grid
+id: paragraph.exhibition_grid.field_grid_items
+field_name: field_grid_items
+entity_type: paragraph
+bundle: exhibition_grid
+label: Exhibitions
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      exhibition: exhibition
+field_type: entity_reference

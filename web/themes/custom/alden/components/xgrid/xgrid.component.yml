@@ -1,0 +1,14 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Exhibition grid
+status: stable
+description: 'The exhibition listing''s 1/2/3-column card grid, with a status badge and past shows desaturated.'
+props:
+  type: object
+  properties:
+    items:
+      type: array
+      title: 'List of { ph_class, badge_text, badge_class, is_past, title, url, meta, summary }'
+      items:
+        type: object
+  required:
+    - items

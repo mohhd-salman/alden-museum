@@ -1,0 +1,10 @@
+uuid: 552162f1-ecc1-4bb1-bc2c-078d30c59322
+langcode: en
+status: true
+dependencies: {  }
+id: featured_grid
+label: 'Featured grid'
+icon_uuid: null
+icon_default: null
+description: null
+behavior_plugins: {  }

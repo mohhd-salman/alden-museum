@@ -1,0 +1,21 @@
+uuid: 45ef5657-ddaf-45e0-af54-db96e1f3e5e2
+langcode: en
+status: true
+dependencies: {  }
+name: alden_split_1024
+label: 'Split 1024w (1:1)'
+effects:
+  adb324a9-5d3d-4b08-86b0-9efba0b8d178:
+    uuid: adb324a9-5d3d-4b08-86b0-9efba0b8d178
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 1024
+      height: 1024
+      anchor: center-center
+  21a9b668-ebef-4790-ace7-6e9110db2086:
+    uuid: 21a9b668-ebef-4790-ace7-6e9110db2086
+    id: image_convert
+    weight: 10
+    data:
+      extension: webp

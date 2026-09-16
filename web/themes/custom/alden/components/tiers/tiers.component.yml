@@ -1,0 +1,14 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Tiers
+status: stable
+description: 'Three pricing tiers -- the middle one inverted and flagged.'
+props:
+  type: object
+  properties:
+    tiers:
+      type: array
+      title: 'List of { name, price, per, benefits: [string], featured: bool, flag }'
+      items:
+        type: object
+  required:
+    - tiers

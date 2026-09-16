@@ -1,0 +1,22 @@
+uuid: c57d23cd-1712-48c7-9217-c09ea3d7cd5c
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - alden
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: alden_powered
+theme: alden
+region: header
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

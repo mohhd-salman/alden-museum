@@ -8,7 +8,7 @@ slogan: 'Art and memory, since 1912'
 page:
   403: ''
   404: ''
-  front: /node
+  front: /node/48
 admin_compact_mode: false
 weight_select_max: 100
 default_langcode: en

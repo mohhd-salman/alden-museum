@@ -1,0 +1,21 @@
+uuid: 40e32c24-332a-44ce-bb57-20447646e25b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_columns
+    - paragraphs.paragraphs_type.card_grid
+  module:
+    - options
+id: paragraph.card_grid.field_columns
+field_name: field_columns
+entity_type: paragraph
+bundle: card_grid
+label: Columns
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

@@ -1,0 +1,18 @@
+uuid: 52e83d69-d6f7-4aa6-b5f3-71e093383a47
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sL588ui1E_8-2c_UupwyYxcqX2OVyMFp3HTLbbFqvPc
+id: global
+label: Global
+tags:
+  title: '[current-page:title] | Alden Museum'
+  description: 'Exhibitions, events, and stories from Alden Museum.'
+  og_site_name: 'Alden Museum'
+  twitter_cards_type: summary_large_image
+  schema_place_type: Museum
+  schema_place_name: '[site:name]'
+  schema_place_description: 'A museum of fine art and design.'
+  schema_place_url: '[site:url]'
+  canonical_url: '[current-page:url]'

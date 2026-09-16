@@ -1,0 +1,24 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: CTA
+status: stable
+description: Centred rust call-to-action band with heading, body and one bone button.
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+    heading_level:
+      type: integer
+      minimum: 1
+      maximum: 6
+      default: 2
+    body:
+      type: string
+    link_url:
+      type: string
+    link_text:
+      type: string
+  required:
+    - heading
+    - link_url
+    - link_text

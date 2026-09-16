@@ -1,0 +1,109 @@
+uuid: 3cd4e1f1-b255-428d-b48e-76f0a9f4e71a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.exhibition.body
+    - field.field.node.exhibition.field_components
+    - field.field.node.exhibition.field_curator
+    - field.field.node.exhibition.field_status
+    - field.field.node.exhibition.field_end_date
+    - field.field.node.exhibition.field_gallery
+    - field.field.node.exhibition.field_hero_media
+    - field.field.node.exhibition.field_metatag
+    - field.field.node.exhibition.field_start_date
+    - field.field.node.exhibition.field_summary
+    - field.field.node.exhibition.field_topics
+    - node.type.exhibition
+  module:
+    - datetime
+    - entity_reference_revisions
+id: node.exhibition.default
+targetEntityType: node
+bundle: exhibition
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_components:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_curator:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: -6
+    region: content
+  field_end_date:
+    type: datetime_default
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: html_date
+    third_party_settings: {  }
+    weight: -7
+    region: content
+  field_gallery:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: alden_gallery
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_hero_media:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: alden_hero
+      link: false
+    third_party_settings: {  }
+    weight: -10
+    region: content
+  field_start_date:
+    type: datetime_default
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: html_date
+    third_party_settings: {  }
+    weight: -8
+    region: content
+  field_summary:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: -9
+    region: content
+  field_topics:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_metatag: true
+  field_status: true

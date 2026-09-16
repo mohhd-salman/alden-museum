@@ -1,0 +1,22 @@
+uuid: 86377e17-fd0a-44ba-8743-187ae16bcc5f
+langcode: en
+status: true
+dependencies:
+  theme:
+    - alden
+_core:
+  default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
+id: alden_primary_local_tasks
+theme: alden
+region: content
+weight: -25
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

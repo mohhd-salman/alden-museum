@@ -1,0 +1,19 @@
+uuid: 6f7a8b9c-1d2e-4f3a-9b4c-2d3e4f5a6b7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_kind
+    - node.type.event
+id: node.event.field_kind
+field_name: field_kind
+entity_type: node
+bundle: event
+label: Kind
+description: "Drives the What's On page's Talks/Workshops filter."
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,23 @@
+uuid: bc7f5b45-ca31-4bba-9127-b32040963bcb
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.exhibition
+  module:
+    - node
+id: exhibition
+label: 'Exhibition paths'
+type: 'canonical_entities:node'
+pattern: '/exhibitions/[node:title]'
+selection_criteria:
+  bundle:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      exhibition: exhibition
+selection_logic: and
+weight: 0
+relationships: {  }

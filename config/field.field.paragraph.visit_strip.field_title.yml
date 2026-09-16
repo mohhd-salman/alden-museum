@@ -1,0 +1,19 @@
+uuid: c1285ec2-3d0e-4cd4-8eb6-6c07d1072bf7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.visit_strip
+id: paragraph.visit_strip.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: visit_strip
+label: 'Heading (optional)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

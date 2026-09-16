@@ -1,0 +1,19 @@
+uuid: 9f3bd35d-b0b8-468b-88f7-9bdf51a71b2f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_stat_value
+    - paragraphs.paragraphs_type.stat_row
+id: paragraph.stat_row.field_stat_value
+field_name: field_stat_value
+entity_type: paragraph
+bundle: stat_row
+label: 'Stat values (in order, plain numerals -- e.g. 4200, not 4,200)'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

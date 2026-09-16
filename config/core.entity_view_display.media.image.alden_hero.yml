@@ -1,0 +1,32 @@
+uuid: a4e5422d-bf57-4c89-a88a-67e5585c7978
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.alden_hero
+    - field.field.media.image.field_media_image
+    - media.type.image
+    - responsive_image.styles.alden_hero
+  module:
+    - responsive_image
+id: media.image.alden_hero
+targetEntityType: media
+bundle: image
+mode: alden_hero
+content:
+  field_media_image:
+    type: responsive_image
+    label: hidden
+    settings:
+      responsive_image_style: alden_hero
+      image_link: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 6
+    region: content
+hidden:
+  created: true
+  name: true
+  thumbnail: true
+  uid: true

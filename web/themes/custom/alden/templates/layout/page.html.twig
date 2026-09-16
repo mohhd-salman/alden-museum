@@ -1,0 +1,54 @@
+{#
+/**
+ * @file
+ * Alden theme override for the page layout, matching
+ * mockups/alden-homepage-mockup.html's <nav> markup and behaviour exactly:
+ * fixed, transparent-over-hero nav that solidifies on scroll, full-screen
+ * circular-wipe menu below 62rem. Pages without a hero (everything except
+ * front/exhibition-detail/membership) get the .has-hero-less "solid"
+ * treatment immediately -- see js/motion.js and has_hero, set in
+ * AldenHooks::preprocessPage() (src/Hook/AldenHooks.php).
+ *
+ * The six nav links plus the membership CTA are hardcoded here (matching
+ * the mockup's own hardcoded links) rather than block/menu-driven, since
+ * the mockup's nav is a fixed, deliberately small set -- not an
+ * editor-managed menu. `page.primary_menu` is intentionally unused.
+ * nav_current (also set in preprocessPage()) drives aria-current.
+ */
+#}
+<a class="skip" href="#main">Skip to main content</a>
+
+<nav class="nav{{ has_hero ? '' : ' solid' }}{{ has_hero ? ' has-hero' : '' }}" id="nav">
+  <a href="{{ front_page }}" class="wordmark" rel="home">Alden</a>
+  <div class="nav-links" id="navlinks">
+    <a href="{{ front_page }}"{{ nav_current == 'home' ? ' aria-current="page"' }}>Home</a>
+    <a href="/exhibitions"{{ nav_current == 'exhibitions' ? ' aria-current="page"' }}>Exhibitions</a>
+    <a href="/whats-on"{{ nav_current == 'whats_on' ? ' aria-current="page"' }}>What's On</a>
+    <a href="{{ path('entity.node.canonical', {node: 43}) }}"{{ nav_current == 'visit' ? ' aria-current="page"' }}>Visit</a>
+    <a href="{{ path('entity.node.canonical', {node: 44}) }}"{{ nav_current == 'about' ? ' aria-current="page"' }}>About</a>
+    <a href="{{ path('entity.node.canonical', {node: 45}) }}" class="nav-cta"{{ nav_current == 'membership' ? ' aria-current="page"' }}>Become a member</a>
+  </div>
+  <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="navlinks" aria-label="Menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h18M3 17h18"/></svg>
+  </button>
+</nav>
+
+{#
+  page.breadcrumb is deliberately not printed here: no template in this
+  theme wants a generic top-of-page breadcrumb region -- exhibition
+  detail's ehero has none at all, and the listing/what's-on/basic/
+  membership templates that do show a .crumb trail build it into their
+  own .phead header markup instead (see those templates).
+#}
+
+<main id="main" tabindex="-1">
+  {{ page.content }}
+
+  {% if page.sidebar %}
+    <aside class="alden-main__sidebar">
+      {{ page.sidebar }}
+    </aside>
+  {% endif %}
+</main>
+
+{% include '@alden/templates/navigation/footer.html.twig' %}

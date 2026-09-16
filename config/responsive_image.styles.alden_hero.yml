@@ -1,0 +1,42 @@
+uuid: 16ee513a-e960-4aa2-ad43-15393d33c252
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.alden_hero_1024
+    - image.style.alden_hero_1440
+    - image.style.alden_hero_1920
+    - image.style.alden_hero_480
+    - image.style.alden_hero_768
+  theme:
+    - alden
+id: alden_hero
+label: Hero
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: alden_hero_1920
+    breakpoint_id: alden.xxwide
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: alden_hero_1440
+    breakpoint_id: alden.xwide
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: alden_hero_1024
+    breakpoint_id: alden.wide
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: alden_hero_768
+    breakpoint_id: alden.medium
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: alden_hero_480
+    breakpoint_id: alden.narrow
+    multiplier: 1x
+breakpoint_group: alden
+fallback_image_style: alden_hero_480

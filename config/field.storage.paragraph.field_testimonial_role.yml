@@ -1,0 +1,21 @@
+uuid: e183e9a0-91ac-4fc2-968e-c28c0244540c
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_testimonial_role
+field_name: field_testimonial_role
+entity_type: paragraph
+type: string
+settings:
+  max_length: 128
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

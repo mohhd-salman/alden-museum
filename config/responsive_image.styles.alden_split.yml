@@ -1,0 +1,42 @@
+uuid: d4bc48f8-d1d1-40a7-bf1d-0d2e9bbb4f5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.alden_split_1024
+    - image.style.alden_split_1440
+    - image.style.alden_split_1920
+    - image.style.alden_split_480
+    - image.style.alden_split_768
+  theme:
+    - alden
+id: alden_split
+label: Split
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: alden_split_1920
+    breakpoint_id: alden.xxwide
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: alden_split_1440
+    breakpoint_id: alden.xwide
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: alden_split_1024
+    breakpoint_id: alden.wide
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: alden_split_768
+    breakpoint_id: alden.medium
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: alden_split_480
+    breakpoint_id: alden.narrow
+    multiplier: 1x
+breakpoint_group: alden
+fallback_image_style: alden_split_480

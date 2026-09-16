@@ -1,0 +1,24 @@
+uuid: 03e039b3-7c1a-4041-8f1b-031141daa116
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hero_media
+    - media.type.image
+    - paragraphs.paragraphs_type.hero
+id: paragraph.hero.field_hero_media
+field_name: field_hero_media
+entity_type: paragraph
+bundle: hero
+label: Image
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+field_type: entity_reference

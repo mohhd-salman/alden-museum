@@ -1,0 +1,6 @@
+{#
+  Glue: featured_grid paragraph -> alden:news-grid SDC (the "What's On"
+  preview, cards carry a tag badge). Props are built in
+  AldenHooks::preprocessParagraph() (see src/Hook/AldenHooks.php).
+#}
+{{ include('alden:news-grid', alden, with_context = false) }}

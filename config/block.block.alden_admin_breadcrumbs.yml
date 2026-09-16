@@ -1,0 +1,22 @@
+uuid: 0fb91535-2bf9-4ff4-b39d-733a51e90691
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - alden_admin
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: alden_admin_breadcrumbs
+theme: alden_admin
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

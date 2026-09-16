@@ -1,0 +1,24 @@
+uuid: 8b6d6a1a-6b7a-4b1e-9c9a-2a1e5a7d6f10
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.exhibition
+  module:
+    - text
+id: node.exhibition.body
+field_name: body
+entity_type: node
+bundle: exhibition
+label: Body
+description: 'Long-form prose shown in the "on mist" section of the exhibition detail page.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

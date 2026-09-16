@@ -1,0 +1,19 @@
+uuid: 4d5e6f7a-8b9c-4d1e-9f2a-1b2c3d4e5f6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_status
+    - node.type.exhibition
+id: node.exhibition.field_status
+field_name: field_status
+entity_type: node
+bundle: exhibition
+label: Status
+description: "Computed automatically from the start/end dates (on node save, and daily via cron) -- not editable by hand. Drives the exhibition listing's exposed filter."
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

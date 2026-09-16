@@ -1,0 +1,21 @@
+uuid: caefd0b0-6d86-45e1-b8a0-ef270443e1c6
+langcode: en
+status: true
+dependencies: {  }
+name: alden_card_480
+label: 'Card 480w (4:3)'
+effects:
+  2b829810-0ffd-44de-acad-1e7e85043ea2:
+    uuid: 2b829810-0ffd-44de-acad-1e7e85043ea2
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 480
+      height: 360
+      anchor: center-center
+  322b55df-17f8-429a-a0f4-4c28e2807c70:
+    uuid: 322b55df-17f8-429a-a0f4-4c28e2807c70
+    id: image_convert
+    weight: 10
+    data:
+      extension: webp

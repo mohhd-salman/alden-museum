@@ -1,0 +1,57 @@
+{#
+/**
+ * @file
+ * Membership (node 45) -- its own dedicated template, matching
+ * mockups/alden-page-templates.html's "5. MEMBERSHIP": 58svh hero,
+ * three pricing tiers (middle one inverted and flagged), a numbered
+ * benefits row on mist, an FAQ using <details>, and a sticky contact
+ * sidebar. All content is built in
+ * AldenHooks::preprocessMembershipNode() (see src/Hook/AldenHooks.php).
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
+
+  {{ include('alden:ehero', alden_hero, with_context = false) }}
+
+  <section class="sec">
+    <div class="wrap">
+      <p class="lede rv" style="margin-bottom:clamp(2.5rem,5vw,4rem)">{{ alden_lede }}</p>
+      {{ include('alden:tiers', { tiers: alden_tiers }, with_context = false) }}
+    </div>
+  </section>
+
+  {{ include('alden:benefits', alden_benefits, with_context = false) }}
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="doc">
+        <div class="rv">
+          {{ include('alden:faq', alden_faq, with_context = false) }}
+        </div>
+        <aside class="aside rv">
+          {% for panel in alden_doc.panels %}
+            <div class="panel">
+              <h4>{{ panel.heading }}</h4>
+              <dl>
+                {% for row in panel.rows %}
+                  <dt>{{ row.dt }}</dt><dd>{{ row.dd|raw }}</dd>
+                {% endfor %}
+              </dl>
+            </div>
+          {% endfor %}
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</article>

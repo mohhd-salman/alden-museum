@@ -1,0 +1,22 @@
+/**
+ * @file
+ * Alden brand tokens for the admin theme. Same palette and font stacks as
+ * the public theme (web/themes/custom/alden/css/tokens.css) -- the two
+ * themes are independent (this is a Claro subtheme, not an Alden subtheme),
+ * so the values are duplicated rather than shared. Keep in sync by hand if
+ * the brand palette changes.
+ */
+
+:root {
+  --alden-ink: #16150F;
+  --alden-stone: #63625A;
+  --alden-rust: #A6462A;
+  --alden-rust-bright: #BC7259;
+  --alden-mist: #E8E3D7;
+  --alden-bone: #FAF7F0;
+
+  --alden-font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --alden-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --alden-tracking-tight: -0.01em;
+}

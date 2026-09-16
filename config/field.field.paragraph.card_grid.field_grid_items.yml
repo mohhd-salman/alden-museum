@@ -1,0 +1,28 @@
+uuid: 069c9c69-b59c-44cb-8217-fca2d824cc98
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_grid_items
+    - node.type.article
+    - node.type.event
+    - node.type.exhibition
+    - paragraphs.paragraphs_type.card_grid
+id: paragraph.card_grid.field_grid_items
+field_name: field_grid_items
+entity_type: paragraph
+bundle: card_grid
+label: Items
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      exhibition: exhibition
+      event: event
+      article: article
+field_type: entity_reference

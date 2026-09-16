@@ -1,0 +1,24 @@
+uuid: aa54a381-24e6-43f2-8665-565f54d1bad3
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.alden_thumb_240
+    - image.style.alden_thumb_480
+  theme:
+    - alden
+id: alden_thumb
+label: Thumbnail
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: alden_thumb_480
+    breakpoint_id: alden.narrow
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: alden_thumb_240
+    breakpoint_id: alden.tiny
+    multiplier: 1x
+breakpoint_group: alden
+fallback_image_style: alden_thumb_240

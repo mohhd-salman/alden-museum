@@ -1,0 +1,34 @@
+uuid: 9ed76fb8-0e89-49fe-b9c3-51125c236538
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.exhibition_grid.field_grid_items
+    - field.field.paragraph.exhibition_grid.field_title
+    - paragraphs.paragraphs_type.exhibition_grid
+id: paragraph.exhibition_grid.default
+targetEntityType: paragraph
+bundle: exhibition_grid
+mode: default
+content:
+  field_grid_items:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

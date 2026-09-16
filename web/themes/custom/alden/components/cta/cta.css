@@ -1,0 +1,11 @@
+/**
+ * @file
+ * CTA band, ported verbatim from mockups/alden-homepage-mockup.html.
+ */
+
+.cta { background: var(--rust); color: var(--bone); text-align: center; }
+.cta .wrap { padding-block: clamp(4rem, 9vw, 7.5rem); }
+.cta h2 { max-width: 20ch; margin-inline: auto; }
+.cta p { max-width: 46ch; margin: 1.25rem auto 2.25rem; color: rgba(250, 247, 240, .88); }
+.cta .btn { background: var(--bone); color: var(--ink); }
+.cta .btn:hover { background: #fff; }

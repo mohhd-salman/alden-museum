@@ -1,0 +1,16 @@
+/**
+ * @file
+ * Stat band, ported verbatim from mockups/alden-homepage-mockup.html.
+ */
+
+.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(2rem, 5vw, 3rem); }
+@media (min-width: 56rem) { .stats { grid-template-columns: repeat(4, 1fr); } }
+.stat .num {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6.5vw, 5.5rem);
+  line-height: .9;
+  letter-spacing: -.03em;
+  color: var(--bone);
+}
+.stat .lbl { margin-top: .75rem; color: rgba(232, 227, 215, .68); }
+.stat { border-top: 1px solid rgba(232, 227, 215, .22); padding-top: 1.35rem; }

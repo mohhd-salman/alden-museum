@@ -1,0 +1,78 @@
+/**
+ * @file
+ * Visual differentiation for the five "Component" paragraph types (hero,
+ * split, card_grid, cta_band, quote) in the paragraphs widget table, so an
+ * editor can scan a long list of components without opening each row.
+ *
+ * The paragraph-type--<bundle> row class is added by Paragraphs module
+ * itself (ParagraphsHooks::preprocessFieldMultipleValueForm) -- nothing to
+ * add on the Drupal side, this is styling only.
+ */
+
+tr[class*="paragraph-type--"] {
+  border-inline-start: 0.25rem solid var(--alden-mist);
+}
+
+.paragraph-type--hero {
+  border-inline-start-color: var(--alden-rust);
+  background-color: color-mix(in srgb, var(--alden-rust) 6%, var(--alden-bone));
+}
+
+.paragraph-type--split {
+  border-inline-start-color: var(--alden-ink);
+  background-color: color-mix(in srgb, var(--alden-ink) 4%, var(--alden-bone));
+}
+
+.paragraph-type--card-grid {
+  border-inline-start-color: var(--alden-stone);
+  background-color: color-mix(in srgb, var(--alden-stone) 6%, var(--alden-bone));
+}
+
+.paragraph-type--cta-band {
+  border-inline-start-color: var(--alden-rust-bright);
+  background-color: color-mix(in srgb, var(--alden-rust-bright) 8%, var(--alden-bone));
+}
+
+.paragraph-type--quote {
+  border-inline-start-color: var(--alden-stone);
+  border-inline-start-style: dashed;
+  background-color: var(--alden-bone);
+}
+
+.paragraph-type--quote .paragraph-type-label {
+  font-style: italic;
+}
+
+/* A small colour swatch before the type label backs up the row accent --
+   useful once several rows are collapsed and the coloured border is a thin
+   strip at the far edge of a wide form. */
+.paragraph-type-label::before {
+  content: '';
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-inline-end: 0.4em;
+  border-radius: 1px;
+  background-color: currentColor;
+  vertical-align: middle;
+  opacity: 0.6;
+}
+
+.paragraph-type--hero .paragraph-type-label,
+.paragraph-type--cta-band .paragraph-type-label {
+  color: var(--alden-rust);
+}
+
+.paragraph-type--split .paragraph-type-label {
+  color: var(--alden-ink);
+}
+
+.paragraph-type--card-grid .paragraph-type-label,
+.paragraph-type--quote .paragraph-type-label {
+  color: var(--alden-stone);
+}
+
+.paragraph-type-label {
+  font-family: var(--alden-font-body);
+  font-weight: 600;
+}

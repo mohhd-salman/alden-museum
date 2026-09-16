@@ -1,0 +1,19 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Announce
+status: stable
+description: Single-line rust announcement band with a bold label and a link.
+props:
+  type: object
+  properties:
+    label:
+      type: string
+      title: 'Bold label, e.g. "Members'' preview"'
+    text:
+      type: string
+      title: 'Rest of the line'
+    url:
+      type: string
+  required:
+    - label
+    - text
+    - url

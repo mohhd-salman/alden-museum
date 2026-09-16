@@ -1,0 +1,21 @@
+uuid: 29061241-6d57-4fa9-8ed3-28448f9115ce
+langcode: en
+status: true
+dependencies: {  }
+name: alden_hero_480
+label: 'Hero 480w (21:9)'
+effects:
+  26960644-6804-4a5e-8d14-f9966826b267:
+    uuid: 26960644-6804-4a5e-8d14-f9966826b267
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 480
+      height: 206
+      anchor: center-center
+  9532ee80-3be7-493e-aca4-253aa5036c4c:
+    uuid: 9532ee80-3be7-493e-aca4-253aa5036c4c
+    id: image_convert
+    weight: 10
+    data:
+      extension: webp

@@ -1,0 +1,201 @@
+/**
+ * @file
+ * Alden Admin: Claro token overrides, typography, toolbar branding and
+ * restrained interaction polish. Loads after Claro's own CSS, so plain
+ * selectors of equal or lower specificity than Claro's are enough to win --
+ * no !important needed except where noted.
+ *
+ * Deliberately NOT touched: Claro's grays, spacing scale, and information
+ * density (row heights, table padding, form-element sizing). This is a
+ * palette + type + motion pass on top of Claro, not a rebuild.
+ */
+
+/* -----------------------------------------------------------------------
+ * Colour palette -- remapped onto Claro's semantic token tier only (link,
+ * focus ring, primary action, active tab/menu indicator). Claro's neutral
+ * grays and structural chrome are left alone.
+ * --------------------------------------------------------------------- */
+:root {
+  --color-focus: var(--alden-rust-bright);
+  --color-link: var(--alden-rust);
+  --color-link-hover: var(--alden-ink);
+  --color-link-active: var(--alden-ink);
+  --color-absolutezero: var(--alden-rust);
+  --color-absolutezero-hover: var(--alden-ink);
+  --color-absolutezero-active: var(--alden-ink);
+  --color-fg: var(--alden-ink);
+
+  --input--focus-border-color: var(--alden-rust);
+
+  --button-bg-color--primary: var(--alden-rust);
+  --button--hover-bg-color--primary: var(--alden-ink);
+  --button--active-bg-color--primary: var(--alden-ink);
+  --button--focus-bg-color--primary: var(--alden-rust);
+
+  --vertical-tabs-menu-link--active-border-color: var(--alden-rust);
+  --jui-dropdown--active-bg-color: var(--alden-rust);
+
+  /* The Navigation module (core's admin sidebar -- this site doesn't use
+     the older Toolbar module) exposes its own accent colour as override
+     hooks, one level removed from the values its component CSS actually
+     reads. Retinting these is the supported way to brand it; nothing here
+     touches Navigation's own CSS files. */
+  --drupal-admin-color-focus: var(--alden-rust-bright);
+  --drupal-admin-color-blue-300: var(--alden-rust-bright);
+  --drupal-admin-color-blue-600: var(--alden-rust);
+  --drupal-admin-color-blue-700: var(--alden-rust);
+
+  /* Body/UI font. Headings are set explicitly to the display face below --
+     h1-h6 don't inherit a separate heading variable in Claro, they just use
+     --font-family, so leaving this as Inter and overriding headings by
+     element selector keeps every non-heading UI control (buttons, labels,
+     table headers, vertical tab titles) on Inter automatically. */
+  --font-family: var(--alden-font-body);
+}
+
+/* Known Claro quirk, unrelated to this change: the "Save" button on
+   node forms sits in a non-sticky action bar on short viewports, so it can
+   scroll out of view on long paragraph-heavy forms. Not fixed here --
+   out of scope for a visual/editor-experience pass. */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--alden-font-display);
+  letter-spacing: var(--alden-tracking-tight);
+}
+
+/* Vertical tab titles and table headers are UI chrome, not content
+   headings -- keep them on Inter for information density. */
+.vertical-tabs__menu-item a,
+.vertical-tabs__menu-item strong,
+th,
+.claro-details__summary {
+  font-family: var(--alden-font-body);
+  letter-spacing: normal;
+}
+
+/* -----------------------------------------------------------------------
+ * Admin toolbar (core's Navigation module -- this site does not use the
+ * older Toolbar module): vector wordmark in place of the default Drupal
+ * mark, masked so it always renders in brand ink regardless of the SVG's
+ * own fill. The image keeps its 40x40 layout box (from the core template's
+ * width/height attributes); only its paint is replaced.
+ * --------------------------------------------------------------------- */
+.admin-toolbar__logo img,
+.admin-toolbar__logo svg {
+  visibility: hidden;
+}
+
+.admin-toolbar__logo {
+  position: relative;
+}
+
+.admin-toolbar__logo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 2.5rem;
+  height: 1.2rem;
+  background-color: var(--alden-ink);
+  -webkit-mask: url('../logo.svg') center / contain no-repeat;
+  mask: url('../logo.svg') center / contain no-repeat;
+  pointer-events: none;
+}
+
+/* -----------------------------------------------------------------------
+ * Restrained motion: focus states and collapsible sections. Everything in
+ * this block is inert under prefers-reduced-motion -- content still opens
+ * and closes instantly, nothing is ever hidden or delayed by it.
+ * --------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .form-element {
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  /* Collapsible sections (field group / details wrappers): a CSS-only
+     open/close reveal using the grid-rows technique, so it works
+     regardless of content height and needs no JS. */
+  .claro-details__wrapper {
+    display: grid;
+    grid-template-rows: 1fr;
+    opacity: 1;
+    transition: grid-template-rows 0.2s ease, opacity 0.2s ease;
+  }
+
+  .claro-details:not([open]) > .claro-details__wrapper {
+    grid-template-rows: 0fr;
+    opacity: 0;
+  }
+
+  .claro-details__wrapper > * {
+    overflow: hidden;
+    min-height: 0;
+  }
+}
+
+/* -----------------------------------------------------------------------
+ * Save / validation feedback. Claro already colours these correctly
+ * (green success, red error) -- this only adds a brand-consistent shape
+ * and a gentle entrance so the message reads as "just happened," not a
+ * jump-cut. Hue is left alone deliberately: error stays red-toned so it
+ * keeps its conventional meaning rather than being reskinned to rust.
+ * --------------------------------------------------------------------- */
+.messages {
+  border-radius: 2px;
+  font-family: var(--alden-font-body);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .messages {
+    animation: alden-message-in 0.2s ease-out;
+  }
+
+  @keyframes alden-message-in {
+    from {
+      opacity: 0;
+      transform: translateY(-0.25rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.form-item--error-message,
+.form-item__error-message {
+  font-family: var(--alden-font-body);
+}
+
+/* Unsaved-changes indicator. Inserted into .form-actions by
+   js/form-feedback.js, shown via the [hidden] attribute (not
+   display:none, kept toggleable by the same script); pure decoration,
+   never blocks or delays submit. */
+.alden-unsaved-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  margin-inline-end: var(--space-m);
+  color: var(--alden-stone);
+  font-family: var(--alden-font-body);
+  font-size: var(--font-size-s);
+}
+
+.alden-unsaved-indicator[hidden] {
+  display: none;
+}
+
+.alden-unsaved-indicator::before {
+  content: '';
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background-color: var(--alden-rust);
+  flex: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .alden-unsaved-indicator {
+    animation: alden-message-in 0.15s ease-out;
+  }
+}

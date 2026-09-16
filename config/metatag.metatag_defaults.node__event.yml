@@ -1,0 +1,19 @@
+uuid: f01e29de-7736-47bc-a90b-7f92845083d0
+langcode: en
+status: true
+dependencies: {  }
+id: node__event
+label: null
+tags:
+  description: '[node:field_summary] [node:field_datetime:date:custom:F j, Y, g:ia] at [node:field_location].'
+  schema_event_image: 'a:2:{s:5:"@type";s:11:"ImageObject";s:3:"url";s:60:"[node:field_event_image:entity:field_media_image:entity:url]";}'
+  title: '[node:title] | Alden Museum'
+  og_image: '[node:field_event_image:entity:field_media_image:entity:url]'
+  og_image_alt: '[node:field_event_image:entity:field_media_image:alt]'
+  twitter_cards_image: '[node:field_event_image:entity:field_media_image:entity:url]'
+  schema_event_type: Event
+  schema_event_name: '[node:title]'
+  schema_event_description: '[node:field_summary]'
+  schema_event_start_date: '[node:field_datetime:value]'
+  schema_event_url: '[node:url]'
+  schema_event_location: 'a:2:{s:5:"@type";s:5:"Place";s:4:"name";s:21:"[node:field_location]";}'

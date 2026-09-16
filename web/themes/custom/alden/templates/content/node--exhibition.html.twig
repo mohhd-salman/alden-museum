@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Exhibition detail. Fixed section order matching
+ * mockups/alden-page-templates.html's "1. EXHIBITION DETAIL": ehero,
+ * facts + lede, split, body on mist, pull quote, gallery grid, related
+ * events on ink. All props are built in
+ * AldenHooks::preprocessNode() (see src/Hook/AldenHooks.php).
+ */
+#}
+<article{{ attributes }}>
+
+  {{ include('alden:ehero', alden_hero, with_context = false) }}
+  {{ include('alden:facts', alden_facts, with_context = false) }}
+
+  {% if alden_split %}{{ alden_split }}{% endif %}
+
+  {% if content.body|render|trim %}
+    <section class="sec on-mist">
+      <div class="wrap">
+        <div class="body-text rv" style="margin-inline:auto">{{ content.body }}</div>
+      </div>
+    </section>
+  {% endif %}
+
+  {% if alden_quote %}{{ alden_quote }}{% endif %}
+
+  {% if alden_gallery %}
+    {{ include('alden:gallery-grid', { eyebrow: 'From the exhibition', items: alden_gallery }, with_context = false) }}
+  {% endif %}
+
+  {% if alden_related %}
+    {{ include('alden:related', { eyebrow: 'Related events', items: alden_related }, with_context = false) }}
+  {% endif %}
+
+</article>

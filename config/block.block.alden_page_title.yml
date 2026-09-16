@@ -1,0 +1,32 @@
+uuid: 1f80065e-6621-4f9e-b652-62d851eccb64
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - alden
+_core:
+  default_config_hash: 6aOgWsNTXjqrDm98TXSAjP6qd2nCijD1xw45MrnbK-Y
+id: alden_page_title
+theme: alden
+region: content
+weight: -20
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      page: page
+      exhibition: exhibition
+      event: event
+      article: article

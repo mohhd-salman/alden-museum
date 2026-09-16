@@ -1,0 +1,32 @@
+/**
+ * @file
+ * Homepage hero, ported verbatim from mockups/alden-homepage-mockup.html.
+ * The exhibition (.ehero, 78svh) and membership (58svh) hero variants are
+ * not built yet -- this file only covers the homepage's 100svh version.
+ */
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  color: var(--bone);
+  overflow: hidden;
+}
+.hero .ph { position: absolute; inset: 0; }
+.hero .ph > i { transform: scale(1.08); }
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(22, 21, 15, .88) 0%, rgba(22, 21, 15, .45) 38%, rgba(22, 21, 15, .1) 70%, rgba(22, 21, 15, .35) 100%);
+}
+.hero-inner {
+  position: relative;
+  padding: 0 var(--pad) clamp(3rem, 7vw, 6rem);
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+}
+.hero h1 { max-width: 16ch; margin: .6rem 0 1.1rem; }
+.hero .lede { color: rgba(250, 247, 240, .82); }
+.hero-foot { display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; align-items: center; margin-top: 2rem; }

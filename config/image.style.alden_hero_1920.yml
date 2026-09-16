@@ -1,0 +1,21 @@
+uuid: 952af981-312b-4a84-809d-d880ab09b2d0
+langcode: en
+status: true
+dependencies: {  }
+name: alden_hero_1920
+label: 'Hero 1920w (21:9)'
+effects:
+  0a628c25-9a1f-48bc-9647-a50e77cbd856:
+    uuid: 0a628c25-9a1f-48bc-9647-a50e77cbd856
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 1920
+      height: 823
+      anchor: center-center
+  be1545a6-a0e4-4d69-ae93-31fc1dc546d4:
+    uuid: be1545a6-a0e4-4d69-ae93-31fc1dc546d4
+    id: image_convert
+    weight: 10
+    data:
+      extension: webp

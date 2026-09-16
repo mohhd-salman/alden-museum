@@ -1,0 +1,23 @@
+uuid: 2ca4d118-f7f9-4ab7-9886-89bc80cb6ef5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link
+    - paragraphs.paragraphs_type.visit_strip
+  module:
+    - link
+id: paragraph.visit_strip.field_link
+field_name: field_link
+entity_type: paragraph
+bundle: visit_strip
+label: 'Link (optional)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

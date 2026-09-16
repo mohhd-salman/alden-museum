@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Basic page: Visit, About, Accessibility, Support Us -- two columns
+ * with a sticky sidebar, matching mockups/alden-page-templates.html's
+ * "4. BASIC PAGE". Node 45 (Membership) and node 48 (the front page)
+ * each have their own dedicated node--45.html.twig / node--48.html.twig
+ * template instead of this one. alden_doc is built in
+ * AldenHooks::preprocessBasicPageNode() (see src/Hook/AldenHooks.php).
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
+  {% include '@alden/templates/content/_doc-layout.html.twig' %}
+</article>

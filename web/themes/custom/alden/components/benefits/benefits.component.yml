@@ -1,0 +1,16 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Benefits
+status: stable
+description: 'Numbered benefits row on a mist background.'
+props:
+  type: object
+  properties:
+    eyebrow:
+      type: string
+    items:
+      type: array
+      title: 'List of { number, heading, body }'
+      items:
+        type: object
+  required:
+    - items

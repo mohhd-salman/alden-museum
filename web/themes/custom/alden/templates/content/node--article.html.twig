@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Article detail: the basic-page template with a date line added, per
+ * the brief -- articles don't get their own bespoke design. alden_doc
+ * is built in AldenHooks::preprocessArticleNode() (see
+ * src/Hook/AldenHooks.php).
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
+  {% include '@alden/templates/content/_doc-layout.html.twig' %}
+</article>

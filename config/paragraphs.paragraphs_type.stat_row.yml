@@ -1,0 +1,10 @@
+uuid: ce44f667-a5a1-4a7a-af32-98f8b5f312d3
+langcode: en
+status: true
+dependencies: {  }
+id: stat_row
+label: 'Stat row'
+icon_uuid: null
+icon_default: null
+description: null
+behavior_plugins: {  }

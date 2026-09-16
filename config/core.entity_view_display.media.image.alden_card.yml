@@ -1,0 +1,32 @@
+uuid: 74c45f52-7b5d-4bfc-b3ac-51b7171563bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.alden_card
+    - field.field.media.image.field_media_image
+    - media.type.image
+    - responsive_image.styles.alden_card
+  module:
+    - responsive_image
+id: media.image.alden_card
+targetEntityType: media
+bundle: image
+mode: alden_card
+content:
+  field_media_image:
+    type: responsive_image
+    label: hidden
+    settings:
+      responsive_image_style: alden_card
+      image_link: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 6
+    region: content
+hidden:
+  created: true
+  name: true
+  thumbnail: true
+  uid: true

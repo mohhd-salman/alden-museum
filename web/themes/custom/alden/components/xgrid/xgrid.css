@@ -1,0 +1,19 @@
+/**
+ * @file
+ * Exhibition listing grid, ported verbatim from
+ * mockups/alden-page-templates.html.
+ */
+
+.xgrid { display: grid; gap: clamp(2rem, 4vw, 3.25rem); grid-template-columns: 1fr; }
+@media (min-width: 44rem) { .xgrid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 70rem) { .xgrid { grid-template-columns: repeat(3, 1fr); } }
+.xcard .ph { aspect-ratio: 3 / 4; margin-bottom: 1.15rem; }
+.xcard:hover .ph > i { transform: scale(1.06); }
+.xcard h3 { margin: .55rem 0 .5rem; transition: color .35s var(--ease); }
+.xcard:hover h3 { color: var(--rust); }
+.xcard p { color: var(--stone); max-width: 40ch; font-size: .9375rem; }
+.badge { display: inline-flex; align-items: center; gap: .45rem; font-size: .625rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; }
+.badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--rust); }
+.badge.up::before { background: var(--stone); }
+.badge.past::before { background: rgba(22, 21, 15, .2); }
+.xcard.is-past .ph > i { filter: saturate(.45); }

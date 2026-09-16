@@ -1,0 +1,21 @@
+uuid: 7a8b9c1d-2e3f-4a4b-8c5d-3e4f5a6b7c8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_kind
+    - node.type.article
+id: node.article.field_kind
+field_name: field_kind
+entity_type: node
+bundle: article
+label: Kind
+description: 'Always "Journal" -- exists so the What''s On page''s Everything/Talks/Workshops/Journal filter can run off one shared field across events and articles.'
+required: false
+translatable: true
+default_value:
+  -
+    value: journal
+default_value_callback: ''
+settings: {  }
+field_type: list_string

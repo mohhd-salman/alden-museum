@@ -1,0 +1,25 @@
+{#
+  Available variables:
+  - eyebrow, heading, heading_level (default 2).
+  - items: list of { label, value }. value may contain a literal <br> and
+    is trusted (built in PHP, not from unescaped user input), so it's
+    rendered with |raw to match the mockup's two-line values.
+#}
+<section{{ attributes.addClass('sec', 'on-mist') }}>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        {% if eyebrow %}<p class="eyebrow">{{ eyebrow }}</p>{% endif %}
+        <h{{ heading_level|default(2) }} class="display d-md">{{ heading }}</h{{ heading_level|default(2) }}>
+      </div>
+    </div>
+    <dl class="visit rv">
+      {% for item in items %}
+        <div>
+          <dt class="meta">{{ item.label }}</dt>
+          <dd>{{ item.value|raw }}</dd>
+        </div>
+      {% endfor %}
+    </dl>
+  </div>
+</section>

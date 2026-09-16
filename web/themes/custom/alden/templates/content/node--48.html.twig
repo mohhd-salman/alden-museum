@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * The front page (node 48) -- the full paragraph-driven homepage
+ * builder. field_components is the only field this template renders --
+ * the mockup's page sections (hero, announce, sec, etc.) are already
+ * full-width, self-contained blocks with their own inner `.wrap`, so no
+ * breakout wrapper is needed here. node--48.html.twig (nid-specific)
+ * takes priority over node--page.html.twig (the basic-page template
+ * used by every other 'page' bundle node).
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
+  {{ content.field_components }}
+</article>

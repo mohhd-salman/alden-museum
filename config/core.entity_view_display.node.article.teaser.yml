@@ -1,0 +1,42 @@
+uuid: a9a6968f-3a52-4600-b56a-5aa0a3bf3ab4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.article.body
+    - field.field.node.article.field_author_name
+    - field.field.node.article.field_image
+    - field.field.node.article.field_metatag
+    - field.field.node.article.field_summary
+    - field.field.node.article.field_topics
+    - node.type.article
+id: node.article.teaser
+targetEntityType: node
+bundle: article
+mode: teaser
+content:
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: alden_card
+      link: false
+    third_party_settings: {  }
+    weight: -10
+    region: content
+  field_summary:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  body: true
+  field_author_name: true
+  field_metatag: true
+  field_topics: true

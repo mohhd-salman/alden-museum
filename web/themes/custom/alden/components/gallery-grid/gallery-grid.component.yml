@@ -1,0 +1,16 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Gallery grid
+status: stable
+description: 'From-the-exhibition image grid -- the first item spans 2x2 at desktop widths.'
+props:
+  type: object
+  properties:
+    eyebrow:
+      type: string
+    items:
+      type: array
+      title: 'List of { ph_class }'
+      items:
+        type: object
+  required:
+    - items

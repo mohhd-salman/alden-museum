@@ -1,0 +1,27 @@
+{#
+  Available variables:
+  - dates, curator: plain text. Curator is omitted if empty (some
+    exhibitions may not have one set).
+  - topics: list of { label, url }.
+  - lede: plain text, shown below the facts bar.
+
+  The <dt> elements are hardcoded human labels (Dates/Curator/Topics),
+  never the raw Drupal field name -- the field data only supplies values.
+#}
+<section{{ attributes.addClass('sec') }} style="padding-block:clamp(2.5rem,5vw,4rem)">
+  <div class="wrap">
+    <dl class="facts rv">
+      <div><dt class="meta">Dates</dt><dd>{{ dates }}</dd></div>
+      {% if curator %}<div><dt class="meta">Curator</dt><dd>{{ curator }}</dd></div>{% endif %}
+      {% if topics %}
+        <div>
+          <dt class="meta">Topics</dt>
+          <dd class="topics">
+            {% for topic in topics %}<a href="{{ topic.url }}">{{ topic.label }}</a>{% endfor %}
+          </dd>
+        </div>
+      {% endif %}
+    </dl>
+    {% if lede %}<p class="lede rv" style="margin-top:clamp(2rem,4vw,3rem)">{{ lede }}</p>{% endif %}
+  </div>
+</section>

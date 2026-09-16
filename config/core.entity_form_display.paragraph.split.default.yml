@@ -1,0 +1,60 @@
+uuid: 0d76a6b5-1126-4545-b639-22259bc4af92
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.split.field_body
+    - field.field.paragraph.split.field_eyebrow
+    - field.field.paragraph.split.field_reversed
+    - field.field.paragraph.split.field_split_media
+    - field.field.paragraph.split.field_title
+    - paragraphs.paragraphs_type.split
+  module:
+    - media_library
+    - text
+id: paragraph.split.default
+targetEntityType: paragraph
+bundle: split
+mode: default
+content:
+  field_body:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 6
+      placeholder: ''
+    third_party_settings: {  }
+  field_eyebrow:
+    type: string_textfield
+    weight: -1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_reversed:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_split_media:
+    type: media_library_widget
+    weight: 2
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

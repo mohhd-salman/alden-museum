@@ -1,0 +1,19 @@
+uuid: eaa71227-c02c-43a7-b5f9-2ee735cf0df0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.cta_band
+id: paragraph.cta_band.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: cta_band
+label: Heading
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

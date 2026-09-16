@@ -1,0 +1,48 @@
+uuid: 391cf779-4eb6-41a2-b33a-f95f82a2234e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_components
+    - node.type.page
+    - paragraphs.paragraphs_type.announcement_band
+    - paragraphs.paragraphs_type.card_grid
+    - paragraphs.paragraphs_type.cta_band
+    - paragraphs.paragraphs_type.exhibition_grid
+    - paragraphs.paragraphs_type.featured_grid
+    - paragraphs.paragraphs_type.hero
+    - paragraphs.paragraphs_type.quote
+    - paragraphs.paragraphs_type.split
+    - paragraphs.paragraphs_type.stat_row
+    - paragraphs.paragraphs_type.testimonial_row
+    - paragraphs.paragraphs_type.visit_strip
+  module:
+    - entity_reference_revisions
+id: node.page.field_components
+field_name: field_components
+entity_type: node
+bundle: page
+label: Components
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      hero: hero
+      split: split
+      card_grid: card_grid
+      cta_band: cta_band
+      quote: quote
+      announcement_band: announcement_band
+      exhibition_grid: exhibition_grid
+      featured_grid: featured_grid
+      stat_row: stat_row
+      testimonial_row: testimonial_row
+      visit_strip: visit_strip
+    negate: 0
+    target_bundles_drag_drop: {  }
+field_type: entity_reference_revisions

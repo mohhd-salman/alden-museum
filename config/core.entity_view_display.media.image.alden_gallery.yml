@@ -1,0 +1,32 @@
+uuid: 25040fd0-6b99-4b8b-a26a-5edc1fe89a18
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.alden_gallery
+    - field.field.media.image.field_media_image
+    - media.type.image
+    - responsive_image.styles.alden_gallery
+  module:
+    - responsive_image
+id: media.image.alden_gallery
+targetEntityType: media
+bundle: image
+mode: alden_gallery
+content:
+  field_media_image:
+    type: responsive_image
+    label: hidden
+    settings:
+      responsive_image_style: alden_gallery
+      image_link: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 6
+    region: content
+hidden:
+  created: true
+  name: true
+  thumbnail: true
+  uid: true

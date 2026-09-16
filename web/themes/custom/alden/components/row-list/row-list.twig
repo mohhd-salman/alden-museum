@@ -1,0 +1,20 @@
+{#
+  Available variables:
+  - items: list of { when: {day, month_year}, tag, tag_class, kind, title,
+    url, summary, meta, ph_class }. tag_class is "ev" (event) or "jr"
+    (article/journal).
+#}
+<div class="rows" id="rows">
+  {% for item in items %}
+    <a class="row rv" data-kind="{{ item.kind }}" href="{{ item.url }}">
+      <div class="when">{{ item.when.day }}<small>{{ item.when.month_year }}</small></div>
+      <div>
+        <span class="tag {{ item.tag_class }}">{{ item.tag }}</span>
+        <h3 class="display d-sm">{{ item.title }}</h3>
+        {% if item.summary %}<p>{{ item.summary }}</p>{% endif %}
+        {% if item.meta %}<p class="meta" style="margin-top:.6rem">{{ item.meta }}</p>{% endif %}
+      </div>
+      <div class="thumb"><div class="ph {{ item.ph_class }}"><i></i></div></div>
+    </a>
+  {% endfor %}
+</div>

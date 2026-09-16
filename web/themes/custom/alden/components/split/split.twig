@@ -1,0 +1,27 @@
+{#
+  Available variables:
+  - eyebrow, heading, heading_level (default 2), body (processed HTML).
+  - link_url, link_text: optional "Read more" link.
+  - reversed: boolean, mirrors the whole composition.
+  - ph_class.
+#}
+<section{{ attributes.addClass('sec') }}>
+  <div class="wrap">
+    <div class="split rv{{ reversed ? ' rev' : '' }}">
+      <div class="split-media"><div class="ph {{ ph_class }}"><i></i></div></div>
+      <div class="split-body">
+        {% if eyebrow %}<p class="eyebrow">{{ eyebrow }}</p>{% endif %}
+        {% if heading %}<h{{ heading_level|default(2) }} class="display d-md">{{ heading }}</h{{ heading_level|default(2) }}>{% endif %}
+        {% if body %}
+          <div class="body-text">{{ body }}</div>
+        {% endif %}
+        {% if link_url %}
+          <a href="{{ link_url }}" class="btn">
+            {{ link_text }}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

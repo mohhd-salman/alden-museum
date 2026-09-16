@@ -1,0 +1,11 @@
+uuid: c59bf46c-21cc-4fb8-bc7a-2d482631a211
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.alden_hero
+label: 'Alden: hero (21:9)'
+description: null
+targetEntityType: media
+cache: true

@@ -1,0 +1,23 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Exhibition hero
+status: stable
+description: Interior-page hero (exhibition detail 78svh, membership 58svh) -- a status pill or eyebrow above an h1, no lede/CTAs.
+props:
+  type: object
+  properties:
+    title:
+      type: string
+    eyebrow:
+      type: string
+      title: 'Eyebrow, shown above the title instead of the status pill (e.g. membership)'
+    status_text:
+      type: string
+      title: 'Status pill text, e.g. "On view now" (exhibition detail)'
+    min_height:
+      type: string
+      title: 'CSS min-height override, e.g. "58svh". Omit to use the default 78svh.'
+    ph_class:
+      type: string
+  required:
+    - title
+    - ph_class

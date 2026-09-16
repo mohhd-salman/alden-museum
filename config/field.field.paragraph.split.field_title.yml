@@ -1,0 +1,19 @@
+uuid: 793ca006-cd36-4005-a1e1-65a0405837d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.split
+id: paragraph.split.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: split
+label: Title
+description: 'Optional: some split layouts (e.g. exhibition detail) show only the eyebrow and body text, no heading.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,22 @@
+uuid: 5e5d1e50-ad79-459d-a8ed-cd724b3bf539
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - alden
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: alden_content
+theme: alden
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

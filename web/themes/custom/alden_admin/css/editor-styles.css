@@ -1,0 +1,25 @@
+/**
+ * @file
+ * Classes exposed to editors via the CKEditor 5 "Style" dropdown (see
+ * editor.editor.basic_html.yml / editor.editor.full_html.yml,
+ * settings.plugins.ckeditor5_style.styles). This is the only way to apply
+ * colour in body copy -- there is no free-text colour picker configured --
+ * so these three classes ARE the palette an editor can choose from.
+ *
+ * Mirrored in web/themes/custom/alden/css (the public theme) so saved
+ * content renders identically once published; the two copies are
+ * independent themes and must be kept in sync by hand.
+ */
+
+.text-rust {
+  color: var(--alden-rust);
+}
+
+.text-stone {
+  color: var(--alden-stone);
+}
+
+.bg-mist {
+  background-color: var(--alden-mist);
+  padding: 0.05em 0.3em;
+}

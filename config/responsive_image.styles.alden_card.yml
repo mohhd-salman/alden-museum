@@ -1,0 +1,29 @@
+uuid: ef099079-63c5-405e-ab54-135cd5e4a4f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.alden_card_1024
+    - image.style.alden_card_1440
+    - image.style.alden_card_1920
+    - image.style.alden_card_480
+    - image.style.alden_card_768
+  theme:
+    - alden
+id: alden_card
+label: Card
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: '(min-width: 80rem) 24.67rem, (min-width: 64rem) calc((100vw - 6rem) / 3), (min-width: 48rem) calc((100vw - 4.5rem) / 2), calc(100vw - 3rem)'
+      sizes_image_styles:
+        - alden_card_1920
+        - alden_card_1440
+        - alden_card_1024
+        - alden_card_768
+        - alden_card_480
+    breakpoint_id: alden.fluid
+    multiplier: 1x
+breakpoint_group: alden
+fallback_image_style: alden_card_480

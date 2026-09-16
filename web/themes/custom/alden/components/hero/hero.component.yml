@@ -1,0 +1,36 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Hero
+status: stable
+description: Full-viewport homepage hero with gradient scrim, bottom-left content, ph placeholder image.
+props:
+  type: object
+  properties:
+    eyebrow:
+      type: string
+      title: Eyebrow
+    heading_level:
+      type: integer
+      title: 'Heading level'
+      minimum: 1
+      maximum: 6
+      default: 1
+    title:
+      type: string
+      title: Title
+    lede:
+      type: string
+      title: Lede
+    primary_url:
+      type: string
+    primary_text:
+      type: string
+    secondary_url:
+      type: string
+    secondary_text:
+      type: string
+    ph_class:
+      type: string
+      title: 'Placeholder image class, e.g. ph-sculpt'
+  required:
+    - title
+    - ph_class

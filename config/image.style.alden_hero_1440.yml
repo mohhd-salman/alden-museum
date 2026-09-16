@@ -1,0 +1,21 @@
+uuid: be501cf7-0fa1-4b46-b42d-d6dc94bc3bdf
+langcode: en
+status: true
+dependencies: {  }
+name: alden_hero_1440
+label: 'Hero 1440w (21:9)'
+effects:
+  37c2409b-2991-4a44-b488-e2bd08d236dc:
+    uuid: 37c2409b-2991-4a44-b488-e2bd08d236dc
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 1440
+      height: 617
+      anchor: center-center
+  24cca89e-51dc-46dd-b0ca-bb07c3c67886:
+    uuid: 24cca89e-51dc-46dd-b0ca-bb07c3c67886
+    id: image_convert
+    weight: 10
+    data:
+      extension: webp

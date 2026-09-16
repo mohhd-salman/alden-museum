@@ -1,0 +1,10 @@
+uuid: 88d6f862-384a-4122-baca-999dbf4337d1
+langcode: en
+status: true
+dependencies: {  }
+id: split
+label: Split
+icon_uuid: null
+icon_default: null
+description: null
+behavior_plugins: {  }

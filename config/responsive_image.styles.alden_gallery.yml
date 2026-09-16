@@ -1,0 +1,29 @@
+uuid: 219f7533-1043-40c7-80af-5c2a7b7b3db8
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.alden_gallery_1024
+    - image.style.alden_gallery_1440
+    - image.style.alden_gallery_1920
+    - image.style.alden_gallery_480
+    - image.style.alden_gallery_768
+  theme:
+    - alden
+id: alden_gallery
+label: Gallery
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: '(min-width: 80rem) 24.67rem, (min-width: 64rem) calc((100vw - 6rem) / 3), (min-width: 48rem) calc((100vw - 4.5rem) / 2), calc(100vw - 3rem)'
+      sizes_image_styles:
+        - alden_gallery_1920
+        - alden_gallery_1440
+        - alden_gallery_1024
+        - alden_gallery_768
+        - alden_gallery_480
+    breakpoint_id: alden.fluid
+    multiplier: 1x
+breakpoint_group: alden
+fallback_image_style: alden_gallery_480

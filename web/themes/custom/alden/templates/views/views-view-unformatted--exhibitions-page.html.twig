@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * The /exhibitions page. Bypasses the default row rendering entirely --
+ * alden_tabs/alden_items are built in
+ * AldenHooks::preprocessViewsViewUnformatted() (see src/Hook/AldenHooks.php)
+ * -- the View underneath still does all the real work (exposed filter,
+ * sort, published/type filtering); this template only supplies the
+ * mockup's markup on top of it. Filter links work as plain GET links
+ * with no JS (?state=1/2/3); js/listing.js layers instant client-side
+ * filtering on top using the same data-filter/data-state values.
+ */
+#}
+<header class="phead wrap">
+  <nav class="crumb">
+    <a href="/">Home</a><span>/</span><a aria-current="page">Exhibitions</a>
+  </nav>
+  <p class="eyebrow">Exhibitions</p>
+  <h1 class="display d-lg" style="max-width:18ch;margin-top:.6rem">Every exhibition, then and now</h1>
+</header>
+<section class="sec" style="padding-top:clamp(1.5rem,3vw,2.5rem)">
+  <div class="wrap">
+    <div class="tabs" id="xtabs" role="group" aria-label="Filter exhibitions">
+      {% for tab in alden_tabs %}
+        <a href="{{ tab.url }}" aria-pressed="{{ tab.active ? 'true' : 'false' }}" data-filter="{{ tab.filter }}">{{ tab.label }}</a>
+      {% endfor %}
+    </div>
+    {{ include('alden:xgrid', { items: alden_items }, with_context = false) }}
+  </div>
+</section>

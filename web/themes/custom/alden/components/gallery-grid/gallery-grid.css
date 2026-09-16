@@ -1,0 +1,12 @@
+/**
+ * @file
+ * Gallery grid, ported verbatim from mockups/alden-page-templates.html.
+ */
+
+.gal { display: grid; gap: clamp(.75rem, 1.5vw, 1.25rem); grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 48rem) {
+  .gal { grid-template-columns: repeat(4, 1fr); }
+  .gal > *:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+}
+.gal .ph { aspect-ratio: 1; cursor: pointer; }
+.gal .ph:hover > i { transform: scale(1.07); }

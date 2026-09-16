@@ -1,0 +1,21 @@
+uuid: 1792b5ee-5c68-4f71-a56c-27487b5ccc30
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_reversed
+    - paragraphs.paragraphs_type.split
+id: paragraph.split.field_reversed
+field_name: field_reversed
+entity_type: paragraph
+bundle: split
+label: 'Reversed (image on right)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

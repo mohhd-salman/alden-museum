@@ -1,0 +1,25 @@
+/**
+ * @file
+ * Announcement band, ported verbatim from
+ * mockups/alden-homepage-mockup.html.
+ */
+
+.announce { background: var(--rust); color: var(--bone); }
+.announce a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1rem var(--pad);
+  text-align: center;
+  font-size: .875rem;
+  letter-spacing: .01em;
+}
+.announce strong {
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-size: .6875rem;
+}
+.announce a span:last-child { text-decoration: underline; text-underline-offset: 4px; }

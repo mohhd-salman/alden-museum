@@ -1,0 +1,21 @@
+uuid: 39f3341b-ade3-4aa8-92ee-8030507060eb
+langcode: en
+status: true
+dependencies: {  }
+name: alden_card_1440
+label: 'Card 1440w (4:3)'
+effects:
+  dc5d3c44-17a4-4509-8131-9fdcbfc2b36a:
+    uuid: dc5d3c44-17a4-4509-8131-9fdcbfc2b36a
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 1440
+      height: 1080
+      anchor: center-center
+  ff2bf76d-1b2c-4c86-a678-d480592f7943:
+    uuid: ff2bf76d-1b2c-4c86-a678-d480592f7943
+    id: image_convert
+    weight: 10
+    data:
+      extension: webp

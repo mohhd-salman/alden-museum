@@ -1,0 +1,22 @@
+uuid: d7cdbf03-fce3-4788-b8ec-4e1de089fb26
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - alden_admin
+_core:
+  default_config_hash: 6aOgWsNTXjqrDm98TXSAjP6qd2nCijD1xw45MrnbK-Y
+id: alden_admin_page_title
+theme: alden_admin
+region: header
+weight: -30
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

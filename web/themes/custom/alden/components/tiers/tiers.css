@@ -1,0 +1,41 @@
+/**
+ * @file
+ * Membership tiers, ported verbatim from
+ * mockups/alden-page-templates.html.
+ */
+
+.tiers { display: grid; gap: clamp(1rem, 2vw, 1.5rem); grid-template-columns: 1fr; align-items: stretch; }
+@media (min-width: 52rem) { .tiers { grid-template-columns: repeat(3, 1fr); } }
+.tier {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(22, 21, 15, .16);
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  background: var(--bone);
+  transition: border-color .4s var(--ease), transform .4s var(--ease);
+}
+.tier:hover { border-color: var(--ink); transform: translateY(-4px); }
+.tier.feat { background: var(--ink); color: var(--bone); border-color: var(--ink); position: relative; }
+.tier.feat .price, .tier.feat h3 { color: var(--bone); }
+.tier.feat li { color: rgba(232, 227,215, .85); }
+.tier.feat .btn { background: var(--bone); color: var(--ink); }
+.tier .flag {
+  position: absolute;
+  top: -1px;
+  right: clamp(1.75rem, 3vw, 2.5rem);
+  background: var(--rust);
+  color: var(--bone);
+  font-size: .625rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: .4rem .75rem;
+}
+.tier h3 { margin-bottom: .4rem; }
+.tier .price { font-family: var(--serif); font-size: clamp(2.75rem, 5vw, 3.75rem); line-height: 1; letter-spacing: -.03em; margin: 1.1rem 0 .3rem; }
+.tier .per { color: var(--stone); font-size: .8125rem; margin-bottom: 1.75rem; }
+.tier.feat .per { color: rgba(232, 227,215, .6); }
+.tier ul { list-style: none; display: grid; gap: .8rem; margin-bottom: 2rem; flex: 1; }
+.tier li { display: flex; gap: .7rem; align-items: flex-start; font-size: .9375rem; color: var(--stone); line-height: 1.45; }
+.tier li::before { content: ""; flex: none; width: 6px; height: 6px; border-radius: 50%; background: var(--rust); margin-top: .55rem; }
+.tier .btn { width: 100%; justify-content: center; }

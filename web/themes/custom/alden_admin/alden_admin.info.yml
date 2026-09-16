@@ -1,0 +1,8 @@
+name: 'Alden Admin'
+type: theme
+base theme: claro
+description: 'Alden brand admin theme. Subtheme of Claro -- inherits its form handling and responsive behaviour; adds Alden tokens, typography and editor-experience polish.'
+core_version_requirement: ^11
+version: 1.0.0
+libraries:
+  - alden_admin/global

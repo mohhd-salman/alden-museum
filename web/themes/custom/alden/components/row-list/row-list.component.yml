@@ -1,0 +1,14 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Row list
+status: stable
+description: "What's On's row list -- large serif date left, content centre, thumbnail right. Deliberately different from the grid layouts."
+props:
+  type: object
+  properties:
+    items:
+      type: array
+      title: 'List of { when: {day, month_year}, tag, tag_class, kind, title, url, summary, meta, ph_class }'
+      items:
+        type: object
+  required:
+    - items
